@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.03
-Release:        %mkrel 5.4
+Release:        %mkrel 5.5
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -82,8 +82,6 @@ BuildRequires:  xalan-j2
 BuildRequires:  jpackage-utils >= 0:1.6
 Group:          Development/Java
 %if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
 BuildRequires:  java-gcj-compat-devel
 %else
 BuildArch:      noarch
