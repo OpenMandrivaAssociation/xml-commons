@@ -367,7 +367,8 @@ sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|
 cp tempf src/manifest.resolver
 rm tempf
 popd
-%{ant} jars
+# (anssi) Uses 1.5-reserved key "enum"
+%{ant} -Dant.build.javac.source=1.4 jars
 popd
 pushd xml-commons-resolver-1_1_b1
 mkdir -p build/site/components/resolver
@@ -378,7 +379,8 @@ sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|
 cp tempf src/manifest.resolver
 rm tempf
 popd
-%{ant} jars javadocs
+# (anssi) Uses 1.5-reserved key "enum"
+%{ant} -Dant.build.javac.source=1.4 jars javadocs
 popd
 pushd xml-commons-external-1_2_04
 %{ant} -f java/external/build.xml jar javadoc
