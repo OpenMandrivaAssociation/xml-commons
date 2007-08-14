@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.03
-Release:        %mkrel 5.5
+Release:        %mkrel 5.4
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
