@@ -111,8 +111,8 @@ Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 %if %{gcj_support}
 Requires(post): java-gcj-compat
 Requires(postun): java-gcj-compat
@@ -149,8 +149,8 @@ Requires:       jaxp_parser_impl
 Requires:       xml-commons-jaxp-1.1-apis
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires:       ant >= 0:1.6
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 
 
 %description which10
@@ -172,8 +172,8 @@ Requires:       jpackage-utils >= 0:1.6
 Requires:       jaxp_parser_impl
 Requires:       xml-commons-jaxp-1.1-apis
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 %if %{gcj_support}
 Requires(post): java-gcj-compat
 Requires(postun): java-gcj-compat
@@ -198,8 +198,8 @@ Requires:       jpackage-utils >= 0:1.6
 Requires:       jaxp_parser_impl
 Requires:       xml-commons-jaxp-1.2-apis
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post):  /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post):  update-alternatives
 %if %{gcj_support}
 Requires(post): java-gcj-compat
 Requires(postun): java-gcj-compat
@@ -226,8 +226,8 @@ Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 %if %{gcj_support}
 Requires(post): java-gcj-compat
 Requires(postun): java-gcj-compat
@@ -265,8 +265,8 @@ Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 %if %{gcj_support}
 Requires(post): java-gcj-compat
 Requires(postun): java-gcj-compat
@@ -304,8 +304,8 @@ Requires:       jaxp_parser_impl
 Requires:       xml-commons-jaxp-1.3-apis
 Requires:       ant >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 
 %description which11
 %{summary}.
@@ -326,8 +326,8 @@ Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires:       jaxp_parser_impl
 Requires:       xml-commons-jaxp-1.3-apis
-Requires(preun): /usr/sbin/update-alternatives
-Requires(post): /usr/sbin/update-alternatives
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
 %if %{gcj_support}
 Requires(post): java-gcj-compat
 Requires(postun): java-gcj-compat
