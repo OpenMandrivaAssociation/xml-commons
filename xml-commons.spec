@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.03
-Release:        %mkrel 5.4
+Release:        %mkrel 5.5
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -113,10 +113,6 @@ Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
-%if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description jaxp-1.1-apis
 DOM 2 org.w3c.dom and SAX XML 2.0 org.xml.sax processor apis used 
@@ -174,10 +170,6 @@ Requires:       xml-commons-jaxp-1.1-apis
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
-%if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description resolver10
 %{summary}.
@@ -200,10 +192,6 @@ Requires:       xml-commons-jaxp-1.2-apis
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post):  update-alternatives
-%if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description resolver11
 %{summary}.
@@ -228,10 +216,6 @@ Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
-%if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description jaxp-1.2-apis
 DOM 2 org.w3c.dom and SAX XML 2.0 org.xml.sax processor apis used 
@@ -267,10 +251,6 @@ Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
-%if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description jaxp-1.3-apis
 DOM 3 org.w3c.dom and SAX XML 2.0.2 (sax2r3) org.xml.sax
@@ -328,10 +308,6 @@ Requires:       jaxp_parser_impl
 Requires:       xml-commons-jaxp-1.3-apis
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
-%if %{gcj_support}
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
-%endif
 
 %description resolver12
 %{summary}.
