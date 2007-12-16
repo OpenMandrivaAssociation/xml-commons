@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.03
-Release:        %mkrel 5.5
+Release:        %mkrel 5.6
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -79,7 +79,7 @@ Requires:       jpackage-utils >= 0:1.6
 BuildRequires:  ant
 BuildRequires:  docbook-style-xsl
 BuildRequires:  xalan-j2
-BuildRequires:  jpackage-utils >= 0:1.6
+BuildRequires:  java-rpmbuild >= 0:1.6
 Group:          Development/Java
 %if %{gcj_support}
 BuildRequires:  java-gcj-compat-devel
