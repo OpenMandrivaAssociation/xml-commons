@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.04
-Release:        %mkrel 0.0.1
+Release:        %mkrel 0.0.2
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -569,9 +569,7 @@ ln -s %{_sysconfdir}/alternatives/%{name}-apis-javadoc $RPM_BUILD_ROOT%{_javadoc
 
 %{__perl} -pi -e 's/\r$//g' README.html KEYS
 
-%if %{gcj_support}
-%{_bindir}/aot-compile-rpm
-%endif
+%{gcj_compile}
 
 # -----------------------------------------------------------------------------
 
@@ -982,5 +980,3 @@ fi
 %endif
 
 # -----------------------------------------------------------------------------
-
-
