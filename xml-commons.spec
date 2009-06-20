@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.04
-Release:        %mkrel 3.0.3
+Release:        %mkrel 3.0.4
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -399,6 +399,8 @@ install -m 644 xml-commons-external-1_2_04/java/external/build/xml-apis.jar \
 # JAXP13
 install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.3-apis-%{version}.jar
+install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis-ext.jar \
+    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.3-apis-ext-%{version}.jar
 # resolver12
 install -m 644 xml-commons-external-1_3_04/java/build/resolver.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-resolver12-%{version}.jar
