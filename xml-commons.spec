@@ -30,7 +30,7 @@
 
 %define section free
 %define resolverdir %{_sysconfdir}/java/resolver
-%define gcj_support 1
+%define gcj_support 0
 
 Name:           xml-commons
 Version:        1.3.04
