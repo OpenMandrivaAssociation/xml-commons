@@ -78,7 +78,7 @@ Patch2:         %{name}-resolver-1.1-build_xml.patch
 Requires:       jpackage-utils >= 0:1.6
 BuildRequires:  ant
 BuildRequires:  docbook-style-xsl
-BuildRequires:  xalan-j2
+BuildRequires:  java-devel >= 0:1.6
 BuildRequires:  java-rpmbuild >= 0:1.6
 Group:          Development/Java
 %if %{gcj_support}
@@ -141,8 +141,7 @@ Group:          Development/Java
 Provides:       xml-commons-which = 0:%{version}
 Obsoletes:      xml-commons-which < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
-Requires:       jaxp_parser_impl
-Requires:       xml-commons-jaxp-1.1-apis
+Requires:       java >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires:       ant >= 0:1.6
 Requires(preun): update-alternatives
@@ -165,8 +164,7 @@ Group:          Development/Java
 Provides:       xml-commons-resolver = 0:%{version}
 Obsoletes:      xml-commons-resolver < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
-Requires:       jaxp_parser_impl
-Requires:       xml-commons-jaxp-1.1-apis
+Requires:       java >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
@@ -187,8 +185,7 @@ Group:          Development/Java
 Provides:       xml-commons-resolver = 0:%{version}
 Obsoletes:      xml-commons-resolver < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
-Requires:       jaxp_parser_impl
-Requires:       xml-commons-jaxp-1.2-apis
+Requires:       java >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
 Requires(post):  update-alternatives
@@ -280,8 +277,7 @@ Summary:        XmlWhich 1.1 from %{name}
 Provides:       xml-commons-which = 0:%{version}
 Obsoletes:      xml-commons-which < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
-Requires:       jaxp_parser_impl
-Requires:       xml-commons-jaxp-1.3-apis
+Requires:       java >= 0:1.6
 Requires:       ant >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
 Requires(preun): update-alternatives
@@ -304,8 +300,7 @@ Provides:       xml-commons-resolver = 0:%{version}
 Obsoletes:      xml-commons-resolver < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
 Requires:       %{name} = %{epoch}:%{version}-%{release}
-Requires:       jaxp_parser_impl
-Requires:       xml-commons-jaxp-1.3-apis
+Requires:       java >= 0:1.6
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
