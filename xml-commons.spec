@@ -34,7 +34,7 @@
 
 Name:           xml-commons
 Version:        1.3.04
-Release:        %mkrel 3.0.5
+Release:        %mkrel 3.0.6
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -961,9 +961,9 @@ fi
 --slave  %{_javadir}/xml-commons-resolver.jar xml-commons-resolver %{_javadir}/xml-commons-resolver12.jar \
 --slave  %{_bindir}/xml-xread xml-xread %{_bindir}/xml-xread12 \
 --slave  %{_bindir}/xml-xparse xml-xparse %{_bindir}/xml-xparse12 \
---slave  %{_mandir}/man1/xml-resolver.1.bz2 xml-resolver.1.bz2 %{_mandir}/man1/xml-resolver12.1.bz2 \
---slave  %{_mandir}/man1/xml-xread.1.bz2 xml-xread.1.bz2 %{_mandir}/man1/xml-xread12.1.bz2 \
---slave  %{_mandir}/man1/xml-xparse.1.bz2 xml-xparse.1.bz2 %{_mandir}/man1/xml-xparse12.1.bz2 
+--slave  %{_mandir}/man1/xml-resolver.1.bz2 xml-resolver.1.bz2 %{_mandir}/man1/xml-resolver12.1.lzma \
+--slave  %{_mandir}/man1/xml-xread.1.bz2 xml-xread.1.bz2 %{_mandir}/man1/xml-xread12.1.lzma \
+--slave  %{_mandir}/man1/xml-xparse.1.bz2 xml-xparse.1.bz2 %{_mandir}/man1/xml-xparse12.1.lzma 
 %if %{gcj_support}
 %{update_gcjdb}
 %endif
