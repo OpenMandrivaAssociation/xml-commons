@@ -321,12 +321,12 @@ Summary:        Javadoc for %{name}-resolver12
 %{__tar} xf %{SOURCE2}
 %{__tar} xf %{SOURCE3}
 
-%patch2 -b .sav
-%patch1 -b .sav
+%patch2 -p0 -b .sav
+%patch1 -p0 -b .sav
 # remove all binary libs and prebuilt javadocs
 rm -rf `find . -name "*.jar" -o -name "*.gz"`
 pushd xml-commons-external-1_3_04
-%patch0 -b .sav
+%patch0 -p0 -b .sav
 popd
 
 for i in `egrep -rl 'enum( |\.)' *| egrep '\.java$'`; do
