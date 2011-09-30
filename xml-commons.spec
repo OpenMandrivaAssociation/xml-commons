@@ -27,14 +27,12 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
-%define section free
-%define resolverdir %{_sysconfdir}/java/resolver
-%define gcj_support 0
+%define resolverdir	%{_sysconfdir}/java/resolver
+%define gcj_support	0
 
 Name:           xml-commons
-Version:        1.3.04
-Release:        3.0.9
+Version:        1.4.01
+Release:        4
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -68,7 +66,9 @@ Source21:       xml-commons-resolver12-xparse.sh
 Source22:       xml-commons-resolver12-xread.1
 Source23:       xml-commons-resolver12-xread.sh
 Source24:       %{name}-resolver-CatalogManager.properties
-
+Source25:	xml-commons-external-1.4.01.tar.bz2
+Source26:	xml-commons-apis-MANIFEST.MF
+Source27:	xml-commons-apis-ext-MANIFEST.MF
 
 Patch0:         %{name}-external-1.3-build_xml.patch
 Patch1:         %{name}-resolver-crosslink.patch
@@ -271,6 +271,40 @@ Summary:        Documents for %{name}-jaxp-1.3-apis
 %description jaxp-1.3-apis-manual
 %{summary}.
 
+%package jaxp-1.4-apis
+Summary:        APIs for DOM, SAX, and JAXP
+Group:          Development/Java
+Provides:       jaxp = 1.4
+Provides:       dom = 3
+Provides:       sax = 2.0.2
+Provides:       xslt = 1.0
+Provides:       xml-commons-apis = %{epoch}:%{version}
+Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
+Requires:       jpackage-utils >= 0:1.6
+Requires:       %{name} = %{EVRD}
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
+
+%description jaxp-1.4-apis
+xml-commons-apis is designed to organize and have common packaging for
+the various externally-defined standard interfaces for XML. This
+includes the DOM, SAX, and JAXP. 
+
+%package jaxp-1.4-apis-javadoc
+Group:          Development/Java
+Summary:        Javadoc for %{name}-jaxp-1.4-apis
+Provides:       %{name}-apis-javadoc = %{epoch}:%{version}
+
+%description jaxp-1.4-apis-javadoc
+%{summary}.
+
+%package jaxp-1.4-apis-manual
+Group:          Development/Java
+Summary:        Documents for %{name}-jaxp-1.3-apis
+
+%description jaxp-1.4-apis-manual
+%{summary}.
+
 %package which11
 Group:          Development/Java
 Summary:        XmlWhich 1.1 from %{name}
@@ -320,6 +354,7 @@ Summary:        Javadoc for %{name}-resolver12
 %{__tar} xf %{SOURCE1}
 %{__tar} xf %{SOURCE2}
 %{__tar} xf %{SOURCE3}
+%{__tar} xf %{SOURCE25}
 
 %patch2 -p0 -b .sav
 %patch1 -p0 -b .sav
@@ -371,198 +406,230 @@ popd
 %{ant} jars javadocs
 popd
 
-%install
-rm -rf $RPM_BUILD_ROOT
+pushd xml-commons-external-1_4_01
+    # Make sure upstream hasn't sneaked in any jars we don't know about
+    find -name '*.class' -exec rm -f '{}' \;
+    find -name '*.jar' -exec rm -f '{}' \;
 
-# Jars
-install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
-# JAXP11
-install -m 644 xml-commons-1_0_b2/java/external/build/xml-apis.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.1-apis-%{version}.jar
-# resolver10
-install -m 644 xml-commons-1_0_b2/java/build/resolver.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-resolver10-%{version}.jar
-# which10
-install -m 644 xml-commons-1_0_b2/java/build/which.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-which10-%{version}.jar
-# resolver11
-install -m 644 xml-commons-resolver-1_1_b1/java/build/resolver.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-resolver11-%{version}.jar
-# JAXP12
-install -m 644 xml-commons-external-1_2_04/java/external/build/xml-apis.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.2-apis-%{version}.jar
-# JAXP13
-install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.3-apis-%{version}.jar
-install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis-ext.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.3-apis-ext-%{version}.jar
-# resolver12
-install -m 644 xml-commons-external-1_3_04/java/build/resolver.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-resolver12-%{version}.jar
-# which11
-install -m 644 xml-commons-external-1_3_04/java/build/which.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-which11-%{version}.jar
+    # Fix file encodings
+    iconv -f iso8859-1 -t utf-8 LICENSE.dom-documentation.txt >	\
+	LICENSE.dom-doc.temp &&
+    mv -f LICENSE.dom-doc.temp LICENSE.dom-documentation.txt
+    iconv -f iso8859-1 -t utf-8 LICENSE.dom-software.txt >	\
+	LICENSE.dom-sof.temp &&
+    mv -f LICENSE.dom-sof.temp LICENSE.dom-software.txt
 
-pushd $RPM_BUILD_ROOT%{_javadir}
-for jar in *-%{version}*; do
-ln -sf ${jar} $(echo $jar | sed -e 's|-%{version}\.jar|.jar|');
-done
-ln -sf %{name}-jaxp-1.1-apis.jar jaxp11.jar
-ln -sf %{name}-jaxp-1.2-apis.jar jaxp12.jar
-ln -sf %{name}-jaxp-1.3-apis.jar jaxp13.jar
-ln -sf %{name}-jaxp-1.3-apis.jar dom3.jar
+    ant -Dant.build.javac.source=1.5 -Dant.build.javac.target=1.5 jar javadoc
 popd
 
+%install
+rm -rf %{buildroot}
+
+# Jars
+install -d -m 755 %{buildroot}%{_javadir}
+# JAXP11
+install -m 644 xml-commons-1_0_b2/java/external/build/xml-apis.jar \
+    %{buildroot}%{_javadir}/%{name}-jaxp-1.1-apis-%{version}.jar
+# resolver10
+install -m 644 xml-commons-1_0_b2/java/build/resolver.jar \
+    %{buildroot}%{_javadir}/%{name}-resolver10-%{version}.jar
+# which10
+install -m 644 xml-commons-1_0_b2/java/build/which.jar \
+    %{buildroot}%{_javadir}/%{name}-which10-%{version}.jar
+# resolver11
+install -m 644 xml-commons-resolver-1_1_b1/java/build/resolver.jar \
+    %{buildroot}%{_javadir}/%{name}-resolver11-%{version}.jar
+# JAXP12
+install -m 644 xml-commons-external-1_2_04/java/external/build/xml-apis.jar \
+    %{buildroot}%{_javadir}/%{name}-jaxp-1.2-apis-%{version}.jar
+# JAXP13
+install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis.jar \
+    %{buildroot}%{_javadir}/%{name}-jaxp-1.3-apis-%{version}.jar
+install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis-ext.jar \
+    %{buildroot}%{_javadir}/%{name}-jaxp-1.3-apis-ext-%{version}.jar
+# JAXP14
+install -m 644 xml-commons-external-1_4_01/build/xml-apis.jar \
+    %{buildroot}%{_javadir}/%{name}-jaxp-1.4-apis-%{version}.jar
+install -m 644 xml-commons-external-1_4_01/build/xml-apis-ext.jar \
+    %{buildroot}%{_javadir}/%{name}-jaxp-1.4-apis-ext-%{version}.jar
+# resolver12
+install -m 644 xml-commons-external-1_3_04/java/build/resolver.jar \
+    %{buildroot}%{_javadir}/%{name}-resolver12-%{version}.jar
+# which11
+install -m 644 xml-commons-external-1_3_04/java/build/which.jar \
+    %{buildroot}%{_javadir}/%{name}-which11-%{version}.jar
+
+pushd %{buildroot}%{_javadir}
+    for jar in *-%{version}*; do
+	ln -sf ${jar} $(echo $jar | sed -e 's|-%{version}\.jar|.jar|');
+    done
+    ln -sf %{name}-jaxp-1.1-apis.jar jaxp11.jar
+    ln -sf %{name}-jaxp-1.2-apis.jar jaxp12.jar
+    ln -sf %{name}-jaxp-1.3-apis.jar jaxp13.jar
+    ln -sf %{name}-jaxp-1.4-apis.jar jaxp14.jar
+popd
 
 # javadoc
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.1-apis-%{version}
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-jaxp-1.1-apis-%{version}
 
 # JAXP11
 cp -pr xml-commons-1_0_b2/java/external/build/docs/javadoc/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.1-apis-%{version}
-ln -s %{name}-jaxp-1.1-apis-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.1-apis
+    %{buildroot}%{_javadocdir}/%{name}-jaxp-1.1-apis-%{version}
+ln -s %{name}-jaxp-1.1-apis-%{version} %{buildroot}%{_javadocdir}/%{name}-jaxp-1.1-apis
 rm -rf xml-commons-1_0_b2/java/external/build/docs/javadoc
 
 # resolver10
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver10-%{version}/org/apache/xml
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-resolver10-%{version}/org/apache/xml
 cp -pr xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/xml/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver10-%{version}/org/apache/xml
-ln -s %{name}-resolver10-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver10
+    %{buildroot}%{_javadocdir}/%{name}-resolver10-%{version}/org/apache/xml
+ln -s %{name}-resolver10-%{version} %{buildroot}%{_javadocdir}/%{name}-resolver10
 
 # resolver11
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver11-%{version}/
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-resolver11-%{version}/
 cp -pr xml-commons-resolver-1_1_b1/build/site/components/apidocs/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver10-%{version}/
-ln -s %{name}-resolver11-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver11
+    %{buildroot}%{_javadocdir}/%{name}-resolver10-%{version}/
+ln -s %{name}-resolver11-%{version} %{buildroot}%{_javadocdir}/%{name}-resolver11
 
 # which10
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which10-%{version}/org/apache/env
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-which10-%{version}/org/apache/env
 cp -pr xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which10-%{version}/org/apache/env
-ln -s %{name}-which10-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which10
+    %{buildroot}%{_javadocdir}/%{name}-which10-%{version}/org/apache/env
+ln -s %{name}-which10-%{version} %{buildroot}%{_javadocdir}/%{name}-which10
 
 # JAXP12
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.2-apis-%{version}
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-jaxp-1.2-apis-%{version}
 cp -pr xml-commons-external-1_2_04/java/external/build/docs/javadoc/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.2-apis-%{version}
-ln -s %{name}-jaxp-1.2-apis-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.2-apis
+    %{buildroot}%{_javadocdir}/%{name}-jaxp-1.2-apis-%{version}
+ln -s %{name}-jaxp-1.2-apis-%{version} %{buildroot}%{_javadocdir}/%{name}-jaxp-1.2-apis
 rm -rf xml-commons-external-1_2_04/java/external/build/docs/javadoc
 
 # JAXP13
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
 cp -pr xml-commons-external-1_3_04/java/external/build/docs/javadoc/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
-ln -s %{name}-jaxp-1.3-apis-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis
+    %{buildroot}%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
+ln -s %{name}-jaxp-1.3-apis-%{version} %{buildroot}%{_javadocdir}/%{name}-jaxp-1.3-apis
 rm -rf xml-commons-external-1_3_04/java/external/build/docs/javadoc
 
+# JAXP14
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-jaxp-1.4-apis-%{version}
+cp -pr xml-commons-external-1_4_01/build/docs/javadoc/* \
+    %{buildroot}%{_javadocdir}/%{name}-jaxp-1.4-apis-%{version}
+ln -s %{name}-jaxp-1.4-apis-%{version} %{buildroot}%{_javadocdir}/%{name}-jaxp-1.4-apis
+rm -rf xml-commons-external-1_4_01/build/docs/javadoc
+
 # resolver12
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12-%{version}
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-resolver12-%{version}
 cp -pr xml-commons-external-1_3_04/java/build/apidocs/resolver/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12-%{version}
-ln -s %{name}-resolver-12-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12
+    %{buildroot}%{_javadocdir}/%{name}-resolver12-%{version}
+ln -s %{name}-resolver-12-%{version} %{buildroot}%{_javadocdir}/%{name}-resolver12
 
 # which11
-install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which11-%{version}
+install -d -m 755 %{buildroot}%{_javadocdir}/%{name}-which11-%{version}
 cp -pr xml-commons-external-1_3_04/java/build/apidocs/which/* \
-    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which11-%{version}
-ln -s %{name}-which11-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which11
+    %{buildroot}%{_javadocdir}/%{name}-which11-%{version}
+ln -s %{name}-which11-%{version} %{buildroot}%{_javadocdir}/%{name}-which11
 
 # Scripts
-install -d -m 755 $RPM_BUILD_ROOT%{_bindir}
-install -d -m 755 $RPM_BUILD_ROOT%{_mandir}/man1
+install -d -m 755 %{buildroot}%{_bindir}
+install -d -m 755 %{buildroot}%{_mandir}/man1
 
-cp -p %{SOURCE4} $RPM_BUILD_ROOT%{_bindir}/xml-which10
-cp -p %{SOURCE5} $RPM_BUILD_ROOT%{_bindir}/xml-which11
+cp -p %{SOURCE4} %{buildroot}%{_bindir}/xml-which10
+cp -p %{SOURCE5} %{buildroot}%{_bindir}/xml-which11
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE7} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-resolver10
+  > %{buildroot}%{_bindir}/xml-resolver10
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE9} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-xread10
+  > %{buildroot}%{_bindir}/xml-xread10
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE11} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-xparse10
+  > %{buildroot}%{_bindir}/xml-xparse10
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE6} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-resolver10.1
+  > %{buildroot}%{_mandir}/man1/xml-resolver10.1
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE8} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-xread10.1
+  > %{buildroot}%{_mandir}/man1/xml-xread10.1
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE10} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-xparse10.1
+  > %{buildroot}%{_mandir}/man1/xml-xparse10.1
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE13} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-resolver11
+  > %{buildroot}%{_bindir}/xml-resolver11
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE15} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-xread11
+  > %{buildroot}%{_bindir}/xml-xread11
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE17} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-xparse11
+  > %{buildroot}%{_bindir}/xml-xparse11
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE12} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-resolver11.1
+  > %{buildroot}%{_mandir}/man1/xml-resolver11.1
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE14} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-xread11.1
+  > %{buildroot}%{_mandir}/man1/xml-xread11.1
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE16} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-xparse11.1
+  > %{buildroot}%{_mandir}/man1/xml-xparse11.1
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE19} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-resolver12
+  > %{buildroot}%{_bindir}/xml-resolver12
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE21} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-xread12
+  > %{buildroot}%{_bindir}/xml-xread12
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE23} \
-  > $RPM_BUILD_ROOT%{_bindir}/xml-xparse12
+  > %{buildroot}%{_bindir}/xml-xparse12
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE18} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-resolver12.1
+  > %{buildroot}%{_mandir}/man1/xml-resolver12.1
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE20} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-xread12.1
+  > %{buildroot}%{_mandir}/man1/xml-xread12.1
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE22} \
-  > $RPM_BUILD_ROOT%{_mandir}/man1/xml-xparse12.1
+  > %{buildroot}%{_mandir}/man1/xml-xparse12.1
 
 # Central CatalogManager.properties
-install -d -m 755 $RPM_BUILD_ROOT%{resolverdir}
-install -m 0644 %{SOURCE24} $RPM_BUILD_ROOT%{resolverdir}/CatalogManager.properties
+install -d -m 755 %{buildroot}%{resolverdir}
+install -m 0644 %{SOURCE24} %{buildroot}%{resolverdir}/CatalogManager.properties
 
 # docs
 # JAXP 1.1
-install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.1-apis-%{version}
-install -m 0644 xml-commons-1_0_b2/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.1-apis-%{version}
-install -m 0644 xml-commons-1_0_b2/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.1-apis-%{version}
+install -d -m 755 %{buildroot}%{_datadir}/%{name}-jaxp-1.1-apis-%{version}
+install -m 0644 xml-commons-1_0_b2/java/external/LICENSE* %{buildroot}%{_datadir}/%{name}-jaxp-1.1-apis-%{version}
+install -m 0644 xml-commons-1_0_b2/java/external/README* %{buildroot}%{_datadir}/%{name}-jaxp-1.1-apis-%{version}
 # JAXP 1.2
-install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
-install -m 0644 xml-commons-external-1_2_04/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
-install -m 0644 xml-commons-external-1_2_04/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
+install -d -m 755 %{buildroot}%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
+install -m 0644 xml-commons-external-1_2_04/java/external/LICENSE* %{buildroot}%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
+install -m 0644 xml-commons-external-1_2_04/java/external/README* %{buildroot}%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
 # JAXP 1.3
-install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
-install -m 0644 xml-commons-external-1_3_04/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
-install -m 0644 xml-commons-external-1_3_04/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+install -d -m 755 %{buildroot}%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+install -m 0644 xml-commons-external-1_3_04/java/external/LICENSE* %{buildroot}%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+install -m 0644 xml-commons-external-1_3_04/java/external/README* %{buildroot}%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+# JAXP 1.4
+install -d -m 755 %{buildroot}%{_datadir}/%{name}-jaxp-1.4-apis-%{version}
+install -m 0644 xml-commons-external-1_4_01/LICENSE* %{buildroot}%{_datadir}/%{name}-jaxp-1.4-apis-%{version}
+install -m 0644 xml-commons-external-1_4_01/README* %{buildroot}%{_datadir}/%{name}-jaxp-1.4-apis-%{version}
 
 # manuals
 # JAXP 1.1
-install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.1-apis-%{version}
-cp -pr xml-commons-1_0_b2/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.1-apis-%{version}
+install -d -m 755 %{buildroot}%{_docdir}/%{name}-jaxp-1.1-apis-%{version}
+cp -pr xml-commons-1_0_b2/java/external/build/docs/* %{buildroot}%{_docdir}/%{name}-jaxp-1.1-apis-%{version}
 # JAXP 1.2
-install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.2-apis-%{version}
-cp -pr xml-commons-external-1_2_04/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.2-apis-%{version}
+install -d -m 755 %{buildroot}%{_docdir}/%{name}-jaxp-1.2-apis-%{version}
+cp -pr xml-commons-external-1_2_04/java/external/build/docs/* %{buildroot}%{_docdir}/%{name}-jaxp-1.2-apis-%{version}
 # JAXP 1.3
-install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
-cp -pr xml-commons-external-1_3_04/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
-
-
+install -d -m 755 %{buildroot}%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
+cp -pr xml-commons-external-1_3_04/java/external/build/docs/* %{buildroot}%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
+# JAXP 1.4
+install -d -m 755 %{buildroot}%{_docdir}/%{name}-jaxp-1.4-apis-%{version}
+cp -pr xml-commons-external-1_4_01/build/docs/* %{buildroot}%{_docdir}/%{name}-jaxp-1.4-apis-%{version}
 
 # For Symlinks and alternatives
-touch $RPM_BUILD_ROOT%{_javadir}/xml-commons-apis.jar
-touch $RPM_BUILD_ROOT%{_javadir}/xml-commons-which.jar
-touch $RPM_BUILD_ROOT%{_javadir}/xml-commons-resolver.jar
-touch $RPM_BUILD_ROOT%{_javadir}/jaxp.jar
-touch $RPM_BUILD_ROOT%{_javadir}/dom3.jar
-touch $RPM_BUILD_ROOT%{_javadir}/dom2.jar
-touch $RPM_BUILD_ROOT%{_javadir}/dom.jar
-touch $RPM_BUILD_ROOT%{_javadir}/sax2.jar
-touch $RPM_BUILD_ROOT%{_javadir}/sax.jar
-touch $RPM_BUILD_ROOT%{_bindir}/xml-which
-touch $RPM_BUILD_ROOT%{_bindir}/xml-resolver
-touch $RPM_BUILD_ROOT%{_bindir}/xml-xread
-touch $RPM_BUILD_ROOT%{_bindir}/xml-xparse
-ln -s %{_sysconfdir}/alternatives/%{name}-apis-javadoc $RPM_BUILD_ROOT%{_javadocdir}/%{name}-apis # ghost symlink
-%{__chmod} 755 $RPM_BUILD_ROOT%{_bindir}*
+touch %{buildroot}%{_javadir}/xml-commons-apis.jar
+touch %{buildroot}%{_javadir}/xml-commons-which.jar
+touch %{buildroot}%{_javadir}/xml-commons-resolver.jar
+touch %{buildroot}%{_javadir}/jaxp.jar
+touch %{buildroot}%{_javadir}/dom3.jar
+touch %{buildroot}%{_javadir}/dom2.jar
+touch %{buildroot}%{_javadir}/dom.jar
+touch %{buildroot}%{_javadir}/sax2.jar
+touch %{buildroot}%{_javadir}/sax.jar
+touch %{buildroot}%{_bindir}/xml-which
+touch %{buildroot}%{_bindir}/xml-resolver
+touch %{buildroot}%{_bindir}/xml-xread
+touch %{buildroot}%{_bindir}/xml-xparse
+ln -s %{_sysconfdir}/alternatives/%{name}-apis-javadoc %{buildroot}%{_javadocdir}/%{name}-apis # ghost symlink
+%{__chmod} 755 %{buildroot}%{_bindir}*
 
 %{__perl} -pi -e 's/\r$//g' README.html KEYS
 
@@ -571,7 +638,7 @@ ln -s %{_sysconfdir}/alternatives/%{name}-apis-javadoc $RPM_BUILD_ROOT%{_javadoc
 # -----------------------------------------------------------------------------
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 # -----------------------------------------------------------------------------
 
@@ -713,6 +780,31 @@ rm -rf $RPM_BUILD_ROOT
 %files jaxp-1.3-apis-manual
 %defattr(0644,root,root,0755)
 %{_docdir}/%{name}-jaxp-1.3-apis-%{version}
+
+%files jaxp-1.4-apis
+%defattr(0644,root,root,0755)
+%{_javadir}/%{name}-jaxp-1.4-apis*.jar
+%if %{gcj_support}
+%attr(-,root,root) %{_libdir}/gcj/%{name}/%{name}-jaxp-1.4-apis*.jar.*
+%endif
+%doc %{_datadir}/%{name}-jaxp-1.4-apis-%{version}
+%ghost %{_javadir}/xml-commons-apis.jar
+%ghost %{_javadir}/jaxp14.jar
+%ghost %{_javadir}/jaxp.jar
+%ghost %{_javadir}/dom3.jar
+%ghost %{_javadir}/dom.jar
+%ghost %{_javadir}/sax2.jar
+%ghost %{_javadir}/sax.jar
+
+%files jaxp-1.4-apis-javadoc
+%defattr(0644,root,root,0755)
+%{_javadocdir}/%{name}-jaxp-1.4-apis-%{version}
+%ghost %{_javadocdir}/%{name}-jaxp-1.4-apis
+%ghost %{_javadocdir}/%{name}-apis
+
+%files jaxp-1.4-apis-manual
+%defattr(0644,root,root,0755)
+%{_docdir}/%{name}-jaxp-1.4-apis-%{version}
 
 %files which11
 %defattr(0644,root,root,0755)
@@ -944,6 +1036,45 @@ ln -s %{name}-jaxp-1.3-apis-%{version} %{_javadocdir}/%{name}-jaxp-1.3-apis
 if [ "$1" = "0" ]; then
   /usr/sbin/update-alternatives --remove xml-commons-apis-javadoc %{_javadocdir}/%{name}-jaxp-1.3-apis/
   rm -f %{_javadocdir}/%{name}-jaxp-1.3-apis
+fi
+
+%post jaxp-1.4-apis
+rm -f %{_javadir}/xml-commons-apis.jar
+rm -f %{_javadir}/jaxp14.jar
+ln -s %{name}-jaxp-1.4-apis.jar %{_javadir}/jaxp14.jar
+/usr/sbin/update-alternatives --install %{_javadir}/xml-commons-apis.jar xml-commons-apis %{_javadir}/jaxp14.jar 10400
+/usr/sbin/update-alternatives --install %{_javadir}/jaxp.jar jaxp %{_javadir}/jaxp14.jar 10400
+/usr/sbin/update-alternatives --install %{_javadir}/dom.jar dom %{_javadir}/jaxp14.jar 10400
+/usr/sbin/update-alternatives --install %{_javadir}/sax2.jar sax2 %{_javadir}/jaxp14.jar 10400
+/usr/sbin/update-alternatives --install %{_javadir}/sax.jar sax %{_javadir}/jaxp14.jar 10400
+/usr/sbin/update-alternatives --install %{_javadir}/xslt.jar xslt %{_javadir}/jaxp14.jar 10400
+%if %{gcj_support}
+%{update_gcjdb}
+%endif
+
+%postun jaxp-1.4-apis
+if [ "$1" = "0" ]; then
+  /usr/sbin/update-alternatives --remove xml-commons-apis %{_javadir}/jaxp14.jar
+  /usr/sbin/update-alternatives --remove jaxp %{_javadir}/jaxp14.jar
+  /usr/sbin/update-alternatives --remove dom %{_javadir}/jaxp14.jar
+  /usr/sbin/update-alternatives --remove sax2 %{_javadir}/jaxp14.jar
+  /usr/sbin/update-alternatives --remove sax %{_javadir}/jaxp14.jar
+  /usr/sbin/update-alternatives --remove xslt %{_javadir}/jaxp14.jar
+  rm -f %{_javadir}/jaxp14.jar
+fi
+%if %{gcj_support}
+%{clean_gcjdb}
+%endif
+
+%post jaxp-1.4-apis-javadoc
+rm -f %{_javadocdir}/%{name}-jaxp-1.4-apis
+ln -s %{name}-jaxp-1.4-apis-%{version} %{_javadocdir}/%{name}-jaxp-1.4-apis
+/usr/sbin/update-alternatives --install %{_javadocdir}/xml-commons-apis xml-commons-apis-javadoc %{_javadocdir}/%{name}-jaxp-1.4-apis/ 10400
+
+%postun jaxp-1.4-apis-javadoc
+if [ "$1" = "0" ]; then
+  /usr/sbin/update-alternatives --remove xml-commons-apis-javadoc %{_javadocdir}/%{name}-jaxp-1.4-apis/
+  rm -f %{_javadocdir}/%{name}-jaxp-1.4-apis
 fi
 
 %post which11
