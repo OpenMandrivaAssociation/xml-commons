@@ -1,0 +1,13 @@
+--- build.xml.sav	2005-07-14 04:23:37.000000000 +0200
++++ build.xml	2006-03-22 11:16:11.000000000 +0100
+@@ -75,7 +75,9 @@
+           description="Calls all other java build files.">
+     <ant dir="java" antfile="which.xml" target="all" >
+     </ant>
+-    <ant dir="java" antfile="resolver.xml" target="all" >
++    <ant dir="java" antfile="resolver.xml" target="jar" >
++    </ant>
++    <ant dir="java" antfile="resolver.xml" target="javadocs" >
+     </ant>
+   </target>
+ 
