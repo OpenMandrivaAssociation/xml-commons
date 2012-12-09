@@ -1,0 +1,48 @@
+.TH XML-RESOLVER "1" "July 2004" "1.1" "User Commands"
+.SH NAME
+xml-resolver \- Resolve XML entities and URIs
+.SH SYNOPSIS
+.B xml-resolver
+\fR[\fIoptions\fR] \fIkeyword\fR
+.SH DESCRIPTION
+xml-resolver is a simple command line XML entity and URI resolver.
+It takes a number of parameters and passes them through the actual
+resolver class, and prints out the result.
+.PP
+The keyword argument identifies the type of resolution to perform,
+it must be one of "doctype", "document", "entity", "notation",
+"public", "system", or "uri".
+.SH OPTIONS
+.TP
+\fB\-c\fR \fIcatalogfile\fR
+Load a particular catalog file.  May be specified multiple times.
+.TP
+\fB\-n\fR \fIname\fR
+Set the name.
+.TP
+\fB\-p\fR \fIpublicid\fR
+Set the public identifier.
+.TP
+\fB\-s\fR \fIsystemid\fR
+Set the system identifier.
+.TP
+\fB\-a\fR
+Make the system URI absolute before resolution.
+.TP
+\fB\-u\fR \fIuri\fR
+Set the URI.
+.TP
+\fB\-d\fR \fIdebuglevel\fR
+Set the debug level (an integer).  The default is 0.
+.SH FILES
+.B __RESOLVERDIR__/CatalogManager.properties
+.RS
+The central catalog manager configuration file used by \fBxml-resolver\fR.
+.SH "SEE ALSO"
+.BR xml-xread (1),
+.BR xml-xparse (1),
+.BR java (1),
+the OASIS entity resolution technical committee home page at
+<http://www.oasis-open.org/committees/entity/>.
+.SH AUTHOR
+Norman Walsh <Norman.Walsh@Sun.COM>
