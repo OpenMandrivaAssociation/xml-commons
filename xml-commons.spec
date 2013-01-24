@@ -45,12 +45,14 @@ URL:            http://xml.apache.org/commons/
 Source0:        xml-commons-1.0.b2.tar.xz
 # svn export http://svn.apache.org/repos/asf/xerces/xml-commons/tags/xml-commons-external-1_2_06/
 Source1:        xml-commons-external-1.2.06.tar.xz
-# svn export http://svn.apache.org/repos/asf/xerces/xml-commons/tags/xml-commons-external-1_3_04/
-Source2:        xml-commons-external-1.3.04.tar.xz
+# svn export http://svn.apache.org/repos/asf/xerces/xml-commons/tags/xml-commons-external-1_3_05/
+Source2:        xml-commons-external-1.3.05.tar.xz
+Source30:	xml-commons-resolver-1.1.b1.tar.bz2
 # svn export http://svn.apache.org/repos/asf/xml/commons/tags/xml-commons-resolver-1_2/
 Source3:        xml-commons-resolver-1.2.tar.xz
 Source4:        xml-commons.which10.script
 Source5:        xml-commons.which11.script
+Source31:	xml-commons.which12.script
 Source6:        xml-commons-resolver10-resolver.1
 Source7:        xml-commons-resolver10-resolver.sh
 Source8:        xml-commons-resolver10-xparse.1
@@ -74,9 +76,7 @@ Source24:       %{name}-resolver-CatalogManager.properties
 
 Patch0:         %{name}-external-1.3-build_xml.patch
 Patch1:         %{name}-resolver-crosslink.patch
-Patch2:         %{name}-resolver-1.1-build_xml.patch
 
-#Patch3:        xml-commons.manifest.patch
 Requires:       jpackage-utils >= 0:1.6
 BuildRequires:  ant
 BuildRequires:  docbook-style-xsl
@@ -292,6 +292,28 @@ Summary:        Javadoc for %{name}-which11
 %description which11-javadoc
 %{summary}.
 
+%package which12
+Group:          Development/Java
+Summary:        XmlWhich 1.2 from %{name}
+Provides:       xml-commons-which = 0:%{version}
+Obsoletes:      xml-commons-which < 0:1.3.03
+Requires:       jpackage-utils >= 0:1.6
+Requires:       java >= 0:1.6
+Requires:       ant >= 0:1.6
+Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
+
+%description which12
+%{summary}.
+
+%package which12-javadoc
+Group:          Development/Java
+Summary:        Javadoc for %{name}-which12
+
+%description which12-javadoc
+%{summary}.
+
 %package resolver12
 Group:          Development/Java
 Summary:        XmlResolver 1.2 from %{name}
@@ -320,13 +342,14 @@ Summary:        Javadoc for %{name}-resolver12
 %{__tar} xf %{SOURCE2}
 %{__tar} xf %{SOURCE3}
 
-%patch2 -p0 -b .sav
-%patch1 -p0 -b .sav
 # remove all binary libs and prebuilt javadocs
 rm -rf `find . -name "*.jar" -o -name "*.gz"`
-pushd xml-commons-external-1_3_04
-%patch0 -p0 -b .sav
+pushd xml-commons-external-1_3_05
+tar x --strip-components=1 -f %SOURCE30
+cp ../xml-commons-resolver-1_2/java/which.xml java/
+%patch0 -p0 -b .p0~
 popd
+%patch1 -p0 -b .p1~
 
 for i in `egrep -rl 'enum( |\.)' *| egrep '\.java$'`; do
     %{__perl} -pi -e 's/enum([ \.])/enum1\1/g' $i
@@ -359,13 +382,13 @@ popd
 pushd xml-commons-external-1_2_06
 %{ant} -f java/external/build.xml jar javadoc
 popd
-pushd xml-commons-external-1_3_04
+pushd xml-commons-external-1_3_05
 pushd java
-#sed -e 's|call Resolver|call resolver|g' resolver.xml > tempf
-#sed -e 's|classname="org.apache.xml.resolver.Catalog"|fork="yes" classname="org.apache.xml.resolver.apps.resolver"|g' tempf > resolver.xml
-#sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|g' src/manifest.resolver > tempf
-#cp tempf src/manifest.resolver
-#rm tempf
+sed -e 's|call Resolver|call resolver|g' resolver.xml > tempf
+sed -e 's|classname="org.apache.xml.resolver.Catalog"|fork="yes" classname="org.apache.xml.resolver.apps.resolver"|g' tempf > resolver.xml
+sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|g' src/manifest.resolver > tempf
+cp tempf src/manifest.resolver
+rm tempf
 popd
 %{ant} jars javadocs
 popd
@@ -387,20 +410,23 @@ install -m 644 xml-commons-1_0_b2/java/build/which.jar \
 # resolver11
 install -m 644 xml-commons-resolver-1_2/java/build/resolver.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-resolver11-%{version}.jar
+# which11
+install -m 644 xml-commons-external-1_3_05/java/build/which.jar \
+    $RPM_BUILD_ROOT%{_javadir}/%{name}-which11-%{version}.jar
 # JAXP12
 install -m 644 xml-commons-external-1_2_06/java/external/build/xml-apis.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.2-apis-%{version}.jar
 # JAXP13
-install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis.jar \
+install -m 644 xml-commons-external-1_3_05/java/external/build/xml-apis.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.3-apis-%{version}.jar
-install -m 644 xml-commons-external-1_3_04/java/external/build/xml-apis-ext.jar \
+install -m 644 xml-commons-external-1_3_05/java/external/build/xml-apis-ext.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.3-apis-ext-%{version}.jar
 # resolver12
-install -m 644 xml-commons-external-1_3_04/java/build/resolver.jar \
+install -m 644 xml-commons-resolver-1_2/java/build/resolver.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-resolver12-%{version}.jar
-# which11
-install -m 644 xml-commons-external-1_3_04/java/build/which.jar \
-    $RPM_BUILD_ROOT%{_javadir}/%{name}-which11-%{version}.jar
+# which12
+install -m 644 xml-commons-resolver-1_2/java/build/which.jar \
+    $RPM_BUILD_ROOT%{_javadir}/%{name}-which12-%{version}.jar
 
 pushd $RPM_BUILD_ROOT%{_javadir}
 for jar in *-%{version}*; do
@@ -449,22 +475,28 @@ rm -rf xml-commons-external-1_2_06/java/external/build/docs/javadoc
 
 # JAXP13
 install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
-cp -pr xml-commons-external-1_3_04/java/external/build/docs/javadoc/* \
+cp -pr xml-commons-external-1_3_05/java/external/build/docs/javadoc/* \
     $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
 ln -s %{name}-jaxp-1.3-apis-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis
-rm -rf xml-commons-external-1_3_04/java/external/build/docs/javadoc
+rm -rf xml-commons-external-1_3_05/java/external/build/docs/javadoc
 
 # resolver12
 install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12-%{version}
-cp -pr xml-commons-external-1_3_04/java/build/apidocs/resolver/* \
+cp -pr xml-commons-external-1_3_05/java/build/apidocs/resolver/* \
     $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12-%{version}
 ln -s %{name}-resolver-12-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12
 
 # which11
 install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which11-%{version}
-cp -pr xml-commons-external-1_3_04/java/build/apidocs/which/* \
+cp -pr xml-commons-external-1_3_05/java/build/apidocs/which/* \
     $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which11-%{version}
 ln -s %{name}-which11-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which11
+
+# which12
+install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which12-%{version}
+cp -pr xml-commons-resolver-1_2/java/build/apidocs/which/* \
+    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which12-%{version}
+ln -s %{name}-which12-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-which12
 
 # Scripts
 install -d -m 755 $RPM_BUILD_ROOT%{_bindir}
@@ -472,6 +504,7 @@ install -d -m 755 $RPM_BUILD_ROOT%{_mandir}/man1
 
 cp -p %{SOURCE4} $RPM_BUILD_ROOT%{_bindir}/xml-which10
 cp -p %{SOURCE5} $RPM_BUILD_ROOT%{_bindir}/xml-which11
+cp -p %{SOURCE31} $RPM_BUILD_ROOT%{_bindir}/xml-which12
 
 sed -e 's|__RESOLVERDIR__|%{resolverdir}|' < %{SOURCE7} \
   > $RPM_BUILD_ROOT%{_bindir}/xml-resolver10
@@ -530,8 +563,8 @@ install -m 0644 xml-commons-external-1_2_06/java/external/LICENSE* $RPM_BUILD_RO
 install -m 0644 xml-commons-external-1_2_06/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.2-apis-%{version}
 # JAXP 1.3
 install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
-install -m 0644 xml-commons-external-1_3_04/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
-install -m 0644 xml-commons-external-1_3_04/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+install -m 0644 xml-commons-external-1_3_05/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+install -m 0644 xml-commons-external-1_3_05/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
 
 # manuals
 # JAXP 1.1
@@ -542,7 +575,7 @@ install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.2-apis-%{version}
 cp -pr xml-commons-external-1_2_06/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.2-apis-%{version}
 # JAXP 1.3
 install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
-cp -pr xml-commons-external-1_3_04/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
+cp -pr xml-commons-external-1_3_05/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
 
 
 
@@ -576,7 +609,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(0644,root,root,0755)
-%doc xml-commons-external-1_3_04/*.txt
+%doc xml-commons-external-1_3_05/*.txt
 %config(noreplace) %{resolverdir}/*
 %if %{gcj_support}
 %dir %{_libdir}/gcj/%{name}
@@ -724,6 +757,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(0644,root,root,0755)
 %{_javadocdir}/%{name}-which11-%{version}
 %ghost %{_javadocdir}/%{name}-which11
+
+%files which12
+%defattr(0644,root,root,0755)
+%{_javadir}/%{name}-which12*.jar
+%ghost %{_javadir}/xml-commons-which.jar
+%attr(0755,root,root) %{_bindir}/xml-which12
+%attr(0755,root,root) %ghost %{_bindir}/xml-which
+
+%files which12-javadoc
+%defattr(0644,root,root,0755)
+%{_javadocdir}/%{name}-which12-%{version}
+%ghost %{_javadocdir}/%{name}-which12
 
 %files resolver12
 %defattr(0644,root,root,0755)
@@ -953,6 +998,16 @@ fi
 if [ "$1" = "0" ]; then
   /usr/sbin/update-alternatives --remove xml-which %{_bindir}/xml-which11
   /usr/sbin/update-alternatives --remove xml-commons-which %{_javadir}/xml-commons-which11.jar
+fi
+
+%post which12
+/usr/sbin/update-alternatives --install %{_bindir}/xml-which xml-which %{_bindir}/xml-which12 10200
+/usr/sbin/update-alternatives --install %{_javadir}/xml-commons-which.jar xml-commons-which %{_javadir}/xml-commons-which12.jar 10200
+
+%postun which12
+if [ "$1" = "0" ]; then
+  /usr/sbin/update-alternatives --remove xml-which %{_bindir}/xml-which12
+  /usr/sbin/update-alternatives --remove xml-commons-which %{_javadir}/xml-commons-which12.jar
 fi
 
 %post resolver12

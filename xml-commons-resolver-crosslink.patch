@@ -17,8 +17,8 @@
  	  </javadoc>
    </target>
  
---- xml-commons-external-1_3_04/java/resolver.xml.sav	2006-03-24 19:01:27.000000000 +0100
-+++ xml-commons-external-1_3_04/java/resolver.xml	2006-03-24 19:04:22.000000000 +0100
+--- xml-commons-external-1_3_05/java/resolver.xml.sav	2006-03-24 19:01:27.000000000 +0100
++++ xml-commons-external-1_3_05/java/resolver.xml	2006-03-24 19:04:22.000000000 +0100
 @@ -68,6 +68,8 @@
    <property name="copyright.message"
              value="Copyright &#169; ${copyright.date} ${company.name}. All Rights Reserved."/>

@@ -1,16 +1,11 @@
---- xml-commons-resolver-1_2/build.xml.sav	2003-09-25 20:15:25.000000000 +0200
-+++ xml-commons-resolver-1_2/build.xml	2006-03-31 20:30:38.000000000 +0200
-@@ -62,11 +62,10 @@
-   </target>
- 
+--- xml-commons-external-1_3_05/build.xml.p2~	2013-01-24 20:38:49.557273358 +0100
++++ xml-commons-external-1_3_05/build.xml	2013-01-24 20:40:34.073008933 +0100
+@@ -64,8 +64,6 @@ just creates a distribution out of all o
    <target name="jars"
--          depends="external" 
+           depends="external" 
            description="Calls all other java build files.">
 -    <ant dir="java" antfile="which.xml" target="all" >
-+    <ant dir="java" antfile="resolver.xml" target="jar" >
+-    </ant>
+     <ant dir="java" antfile="resolver.xml" target="jar" >
      </ant>
--    <ant dir="java" antfile="resolver.xml" target="all" >
-+    <ant dir="java" antfile="resolver.xml" target="javadocs" >
-     </ant>
-   </target>
- 
+     <ant dir="java" antfile="resolver.xml" target="javadocs" >
