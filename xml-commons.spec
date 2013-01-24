@@ -5,8 +5,8 @@
 %define gcj_support 0
 
 Name:           xml-commons
-Version:        1.3.04
-Release:        4
+Version:        1.4.01
+Release:        1
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -20,6 +20,8 @@ Source2:        xml-commons-external-1.3.05.tar.xz
 Source30:	xml-commons-resolver-1.1.b1.tar.bz2
 # svn export http://svn.apache.org/repos/asf/xml/commons/tags/xml-commons-resolver-1_2/
 Source3:        xml-commons-resolver-1.2.tar.xz
+# svn export http://svn.apache.org/repos/asf/xerces/xml-commons/tags/xml-commons-external-1_4_01/
+Source32:	xml-commons-external-1.4.01.tar.xz
 Source4:        xml-commons.which10.script
 Source5:        xml-commons.which11.script
 Source31:	xml-commons.which12.script
@@ -50,6 +52,7 @@ Patch1:         %{name}-resolver-crosslink.patch
 Requires:       jpackage-utils >= 0:1.6
 BuildRequires:  ant
 BuildRequires:  docbook-style-xsl
+BuildRequires:	java-1.6.0-openjdk-devel
 BuildRequires:  java-devel >= 0:1.6
 BuildRequires:  java-rpmbuild >= 0:1.6
 Group:          Development/Java
@@ -240,6 +243,42 @@ Summary:        Documents for %{name}-jaxp-1.3-apis
 %description jaxp-1.3-apis-manual
 %{summary}.
 
+%package jaxp-1.4-apis
+Summary:        JAXP 1.4, DOM 3, SAX 2.0.1, SAX2-ext 1.0 apis
+Group:          Development/Java
+Provides:       jaxp = 1.4
+Provides:       dom = 3
+Provides:       sax = 2.0.2
+Provides:       xslt = 1.0
+Provides:       xml-commons-apis = %{epoch}:%{version}
+Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
+Requires:       jpackage-utils >= 0:1.6
+Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires(preun): update-alternatives
+Requires(post): update-alternatives
+
+%description jaxp-1.4-apis
+DOM 3 org.w3c.dom and SAX XML 2.0.2 (sax2r3) org.xml.sax
+processor apis used by several pieces of Apache software.
+Thi version includes the JAXP 1.3 APIs --
+JSR 206, Java API for XML Processing 1.3, i.e.
+javax.xml{.parsers,.transform,.validation,.datatype,.xtype}.
+
+%package jaxp-1.4-apis-javadoc
+Group:          Development/Java
+Summary:        Javadoc for %{name}-jaxp-1.4-apis
+Provides:       %{name}-apis-javadoc = %{epoch}:%{version}
+
+%description jaxp-1.4-apis-javadoc
+%{summary}.
+
+%package jaxp-1.4-apis-manual
+Group:          Development/Java
+Summary:        Documents for %{name}-jaxp-1.4-apis
+
+%description jaxp-1.4-apis-manual
+%{summary}.
+
 %package which11
 Group:          Development/Java
 Summary:        XmlWhich 1.1 from %{name}
@@ -311,6 +350,7 @@ Summary:        Javadoc for %{name}-resolver12
 %{__tar} xf %{SOURCE1}
 %{__tar} xf %{SOURCE2}
 %{__tar} xf %{SOURCE3}
+%{__tar} xf %{SOURCE32}
 
 # remove all binary libs and prebuilt javadocs
 rm -rf `find . -name "*.jar" -o -name "*.gz"`
@@ -326,6 +366,7 @@ for i in `egrep -rl 'enum( |\.)' *| egrep '\.java$'`; do
 done
 
 %build
+export JAVA_HOME=%_prefix/lib/jvm/java-1.6.0
 pushd xml-commons-1_0_b2
 pushd java
 sed -e 's|call Resolver|call resolver|g' resolver.xml > tempf
@@ -335,7 +376,7 @@ cp tempf src/manifest.resolver
 rm tempf
 popd
 # (anssi) Uses 1.5-reserved key "enum"
-%{ant} -Dant.build.javac.source=1.4 jars
+ant -Dant.build.javac.source=1.4 jars
 popd
 pushd xml-commons-resolver-1_2
 mkdir -p build/site/components/resolver
@@ -347,10 +388,10 @@ cp tempf src/manifest.resolver
 rm tempf
 popd
 # (anssi) Uses 1.5-reserved key "enum"
-%{ant} -Dant.build.javac.source=1.4 jars javadocs
+ant -Dant.build.javac.source=1.4 jars javadocs
 popd
 pushd xml-commons-external-1_2_06
-%{ant} -f java/external/build.xml jar javadoc
+ant -f java/external/build.xml jar javadoc
 popd
 pushd xml-commons-external-1_3_05
 pushd java
@@ -360,7 +401,10 @@ sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|
 cp tempf src/manifest.resolver
 rm tempf
 popd
-%{ant} jars javadocs
+ant jars javadocs
+popd
+pushd xml-commons-external-1_4_01
+ant -f java/external/build.xml jar javadoc
 popd
 
 %install
@@ -397,6 +441,11 @@ install -m 644 xml-commons-resolver-1_2/java/build/resolver.jar \
 # which12
 install -m 644 xml-commons-resolver-1_2/java/build/which.jar \
     $RPM_BUILD_ROOT%{_javadir}/%{name}-which12-%{version}.jar
+# JAXP14
+install -m 644 xml-commons-external-1_4_01/java/external/build/xml-apis.jar \
+    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.4-apis-%{version}.jar
+install -m 644 xml-commons-external-1_4_01/java/external/build/xml-apis-ext.jar \
+    $RPM_BUILD_ROOT%{_javadir}/%{name}-jaxp-1.4-apis-ext-%{version}.jar
 
 pushd $RPM_BUILD_ROOT%{_javadir}
 for jar in *-%{version}*; do
@@ -406,6 +455,7 @@ ln -sf %{name}-jaxp-1.1-apis.jar jaxp11.jar
 ln -sf %{name}-jaxp-1.2-apis.jar jaxp12.jar
 ln -sf %{name}-jaxp-1.3-apis.jar jaxp13.jar
 ln -sf %{name}-jaxp-1.3-apis.jar dom3.jar
+ln -sf %{name}-jaxp-1.4-apis.jar jaxp14.jar
 popd
 
 
@@ -449,6 +499,13 @@ cp -pr xml-commons-external-1_3_05/java/external/build/docs/javadoc/* \
     $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis-%{version}
 ln -s %{name}-jaxp-1.3-apis-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.3-apis
 rm -rf xml-commons-external-1_3_05/java/external/build/docs/javadoc
+
+# JAXP14
+install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.4-apis-%{version}
+cp -pr xml-commons-external-1_4_01/java/external/build/docs/javadoc/* \
+    $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.4-apis-%{version}
+ln -s %{name}-jaxp-1.4-apis-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name}-jaxp-1.4-apis
+rm -rf xml-commons-external-1_4_01/java/external/build/docs/javadoc
 
 # resolver12
 install -d -m 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-resolver12-%{version}
@@ -535,6 +592,10 @@ install -m 0644 xml-commons-external-1_2_06/java/external/README* $RPM_BUILD_ROO
 install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
 install -m 0644 xml-commons-external-1_3_05/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
 install -m 0644 xml-commons-external-1_3_05/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.3-apis-%{version}
+# JAXP 1.4
+install -d -m 755 $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.4-apis-%{version}
+install -m 0644 xml-commons-external-1_4_01/java/external/LICENSE* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.4-apis-%{version}
+install -m 0644 xml-commons-external-1_4_01/java/external/README* $RPM_BUILD_ROOT%{_datadir}/%{name}-jaxp-1.4-apis-%{version}
 
 # manuals
 # JAXP 1.1
@@ -546,6 +607,9 @@ cp -pr xml-commons-external-1_2_06/java/external/build/docs/* $RPM_BUILD_ROOT%{_
 # JAXP 1.3
 install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
 cp -pr xml-commons-external-1_3_05/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.3-apis-%{version}
+# JAXP 1.4
+install -d -m 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.4-apis-%{version}
+cp -pr xml-commons-external-1_4_01/java/external/build/docs/* $RPM_BUILD_ROOT%{_docdir}/%{name}-jaxp-1.4-apis-%{version}
 
 
 
@@ -715,6 +779,31 @@ rm -rf $RPM_BUILD_ROOT
 %files jaxp-1.3-apis-manual
 %defattr(0644,root,root,0755)
 %{_docdir}/%{name}-jaxp-1.3-apis-%{version}
+
+%files jaxp-1.4-apis
+%defattr(0644,root,root,0755)
+%{_javadir}/%{name}-jaxp-1.4-apis*.jar
+%if %{gcj_support}
+%attr(-,root,root) %{_libdir}/gcj/%{name}/%{name}-jaxp-1.4-apis*.jar.*
+%endif
+%doc %{_datadir}/%{name}-jaxp-1.4-apis-%{version}
+%ghost %{_javadir}/xml-commons-apis.jar
+%ghost %{_javadir}/jaxp14.jar
+%ghost %{_javadir}/jaxp.jar
+%ghost %{_javadir}/dom3.jar
+%ghost %{_javadir}/dom.jar
+%ghost %{_javadir}/sax2.jar
+%ghost %{_javadir}/sax.jar
+
+%files jaxp-1.4-apis-javadoc
+%defattr(0644,root,root,0755)
+%{_javadocdir}/%{name}-jaxp-1.4-apis-%{version}
+%ghost %{_javadocdir}/%{name}-jaxp-1.4-apis
+%ghost %{_javadocdir}/%{name}-apis
+
+%files jaxp-1.4-apis-manual
+%defattr(0644,root,root,0755)
+%{_docdir}/%{name}-jaxp-1.4-apis-%{version}
 
 %files which11
 %defattr(0644,root,root,0755)
