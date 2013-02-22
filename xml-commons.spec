@@ -6,7 +6,7 @@
 
 Name:           xml-commons
 Version:        1.4.01
-Release:        1
+Release:        2
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -53,6 +53,9 @@ Requires:       jpackage-utils >= 0:1.6
 BuildRequires:  ant
 BuildRequires:  docbook-style-xsl
 BuildRequires:	java-1.6.0-openjdk-devel
+# Make sure we don't get 1.7 -- it creates
+# jars that are incompatible with 1.6
+BuildConflicts:	java-1.7.0-openjdk-devel
 BuildRequires:  java-devel >= 0:1.6
 BuildRequires:  java-rpmbuild >= 0:1.6
 Group:          Development/Java
