@@ -1,0 +1,1564 @@
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+warning: R update-alternatives overlaps R update-alternatives, removing R update-alternatives and merging flags
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.69666
++ umask 022
++ cd /home/bero/abf/xml-commons/BUILD
++ '[' 1 -eq 1 ']'
++ '[' 1 -eq 1 ']'
++ '[' 1 -eq 1 ']'
++ cd /home/bero/abf/xml-commons/BUILD
++ rm -rf xml-commons-1.4.01
++ /bin/mkdir -p xml-commons-1.4.01
++ cd xml-commons-1.4.01
++ /bin/tar xf /home/bero/abf/xml-commons/xml-commons-1.0.b2.tar.xz
++ /bin/tar xf /home/bero/abf/xml-commons/xml-commons-external-1.2.06.tar.xz
++ /bin/tar xf /home/bero/abf/xml-commons/xml-commons-external-1.3.05.tar.xz
++ /bin/tar xf /home/bero/abf/xml-commons/xml-commons-resolver-1.2.tar.xz
++ /bin/tar xf /home/bero/abf/xml-commons/xml-commons-external-1.4.01.tar.xz
+++ find . -name '*.jar' -o -name '*.gz'
++ rm -rf
++ pushd xml-commons-external-1_3_05
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ tar x --strip-components=1 -f /home/bero/abf/xml-commons/xml-commons-resolver-1.1.b1.tar.bz2
++ cp ../xml-commons-resolver-1_2/java/which.xml java/
++ echo 'Patch #0 (xml-commons-external-1.3-build_xml.patch):'
+Patch #0 (xml-commons-external-1.3-build_xml.patch):
++ /bin/cat /home/bero/abf/xml-commons/xml-commons-external-1.3-build_xml.patch
++ /usr/bin/patch --fuzz=0 -s -U -p0 -b --suffix .p0~
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ echo 'Patch #1 (xml-commons-resolver-crosslink.patch):'
+Patch #1 (xml-commons-resolver-crosslink.patch):
++ /bin/cat /home/bero/abf/xml-commons/xml-commons-resolver-crosslink.patch
++ /usr/bin/patch --fuzz=0 -s -U -p0 -b --suffix .p1~
+++ egrep '\.java$'
+++ egrep -rl 'enum( |\.)' xml-commons-1_0_b2 xml-commons-external-1_2_06 xml-commons-external-1_3_05 xml-commons-external-1_4_01 xml-commons-resolver-1_2
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-1_0_b2/java/src/org/apache/xml/resolver/Resolver.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-1_0_b2/java/src/org/apache/xml/resolver/Catalog.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-1_0_b2/java/src/org/apache/env/Which.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-external-1_3_05/java/src/org/apache/env/Which.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/Catalog.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/Resolver.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-external-1_3_05/java/external/src/javax/xml/datatype/DatatypeConstants.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-external-1_4_01/java/external/src/javax/xml/datatype/DatatypeConstants.java
++ for i in '`egrep -rl '\''enum( |\.)'\'' *| egrep '\''\.java$'\''`'
++ /usr/bin/perl -pi -e 's/enum([ \.])/enum1\1/g' xml-commons-resolver-1_2/java/external/src/javax/xml/datatype/DatatypeConstants.java
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.47091
++ umask 022
++ cd /home/bero/abf/xml-commons/BUILD
++ cd xml-commons-1.4.01
++ '[' 1 -eq 1 ']'
++ '[' 1 -eq 1 ']'
++ export JAVA_HOME=/usr/lib/jvm/java-1.6.0
++ JAVA_HOME=/usr/lib/jvm/java-1.6.0
++ pushd xml-commons-1_0_b2
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ pushd java
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java ~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ sed -e 's|call Resolver|call resolver|g' resolver.xml
++ sed -e 's|classname="org.apache.xml.resolver.Catalog"|fork="yes" classname="org.apache.xml.resolver.apps.resolver"|g' tempf
++ sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|g' src/manifest.resolver
++ cp tempf src/manifest.resolver
++ rm tempf
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ ant -Dant.build.javac.source=1.4 jars
+Buildfile: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/build.xml
+
+external:
+
+prepare:
+     [echo] Building xml-apis (version: 1.0.b2) Buildfile: $Revision: 225956 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/docs/javadoc
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/apache/xmlcommons
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 177 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+
+jar:
+     [echo] Jarring ./build/xml-apis.jar from ./build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/classes/license
+     [copy] Copying 7 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/classes/license
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/xml-apis.jar
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package javax.xml.parsers...
+  [javadoc] Loading source files for package javax.xml.transform...
+  [javadoc] Loading source files for package javax.xml.transform.dom...
+  [javadoc] Loading source files for package javax.xml.transform.sax...
+  [javadoc] Loading source files for package javax.xml.transform.stream...
+  [javadoc] Loading source files for package org.w3c.dom...
+  [javadoc] Loading source files for package org.w3c.dom.css...
+  [javadoc] Loading source files for package org.w3c.dom.events...
+  [javadoc] Loading source files for package org.w3c.dom.html...
+  [javadoc] Loading source files for package org.w3c.dom.ranges...
+  [javadoc] Loading source files for package org.w3c.dom.stylesheets...
+  [javadoc] Loading source files for package org.w3c.dom.traversal...
+  [javadoc] Loading source files for package org.w3c.dom.views...
+  [javadoc] Loading source files for package org.xml.sax...
+  [javadoc] Loading source files for package org.xml.sax.ext...
+  [javadoc] Loading source files for package org.xml.sax.helpers...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/parsers/FactoryConfigurationError.java:118: warning - Parameter "e" is documented more than once.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/transform/Transformer.java:216: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/transform/TransformerConfigurationException.java:99: warning - Parameter "e" is documented more than once.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/transform/TransformerFactory.java:186: warning - @param argument "source" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/transform/TransformerFactoryConfigurationError.java:113: warning - Parameter "e" is documented more than once.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/transform/dom/DOMResult.java:96: warning - @param argument "n" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/javax/xml/transform/sax/TemplatesHandler.java:90: warning - @param argument "baseID" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/w3c/dom/Node.java:165: warning - Tag @version cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/w3c/dom/Node.java:301: warning - Tag @version cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/AttributeList.java:187: warning - @param argument "i" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/ContentHandler.java:58: warning - Tag @link: reference not found: java.net.ContentHandler ContentHandler
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/ContentHandler.java:239: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/ContentHandler.java:265: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/DTDHandler.java:100: warning - @param argument "notation" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/HandlerBase.java:220: warning - @param argument "attributes" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/XMLReader.java:154: warning - @param argument "state" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/XMLReader.java:218: warning - @param argument "state" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/XMLReader.java:384: warning - @param argument "source" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/DefaultHandler.java:261: warning - @param argument "name" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/DefaultHandler.java:283: warning - @param argument "name" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/DefaultHandler.java:283: warning - @param argument "attributes" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/NamespaceSupport.java:345: warning - @param argument "isAttribute" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/ParserAdapter.java:314: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/ParserAdapter.java:343: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/ParserAdapter.java:372: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:202: warning - @param argument "state" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:274: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:304: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:334: warning - @param argument "handle" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/src/org/xml/sax/helpers/XMLReaderAdapter.java:124: warning - @param argument "The" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/docs/javadoc/stylesheet.css...
+  [javadoc] 30 warnings
+     [copy] Copying 176 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/docs
+
+exportsrc:
+      [tar] Building tar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/xml-apis-1.0.b2-src.tar
+     [gzip] Building: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/xml-apis-1.0.b2-src.tar.gz
+   [delete] Deleting: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/external/build/xml-apis-1.0.b2-src.tar
+
+all:
+
+jars:
+
+init:
+     [echo] Building xml-commons-which (version: 1.0.b2) Buildfile: $Revision: 225943 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/docs/javadocs
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/which.xml:67: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 12 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/classes
+
+jar:
+     [echo] Jarring ./build/which.jar from ./build/classes
+     [copy] Copying 2 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/which.jar
+
+javadocs:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.apache.env...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/env/Which.java:172: warning - @param argument "projects" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/env/WhichJar.java:289: warning - @param argument "jarName" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/docs/javadocs/stylesheet.css...
+  [javadoc] 2 warnings
+
+printerdocs:
+     [echo] xml-commons-which currently doesn't have any user documents in a printable format.
+
+docs:
+
+all:
+
+init:
+     [echo] Building xml-commons-resolver (version: 1.0.b2) Buildfile: $Revision: 225951 $
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/resolver.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 27 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+
+jar:
+     [echo] Jarring ./build/resolver.jar from ./build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/resolver.jar
+
+javadocs:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.apache.xml.resolver...
+  [javadoc] Loading source files for package org.apache.xml.resolver.apps...
+  [javadoc] Loading source files for package org.apache.xml.resolver.helpers...
+  [javadoc] Loading source files for package org.apache.xml.resolver.readers...
+  [javadoc] Loading source files for package org.apache.xml.resolver.tools...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogEntry.java:232: warning - @param argument "name" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogManager.java:245: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogManager.java:287: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogManager.java:312: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogManager.java:362: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogManager.java:391: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/CatalogManager.java:422: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/helpers/PublicId.java:150: warning - @param argument "publicId" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/readers/OASISXMLCatalogReader.java:124: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/src/org/apache/xml/resolver/readers/TR9401CatalogReader.java:116: warning - @param argument "fileUrl" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-1_0_b2/java/build/docs/javadocs/stylesheet.css...
+  [javadoc] 10 warnings
+
+printerdocs:
+     [echo] xml-commons-resolver currently doesn't have any user documents in a printable format.
+
+docs:
+
+all:
+
+BUILD SUCCESSFUL
+Total time: 11 seconds
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ pushd xml-commons-resolver-1_2
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ mkdir -p build/site/components/resolver
++ pushd java
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java ~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ sed -e 's|call Resolver|call resolver|g' resolver.xml
++ sed -e 's|classname="org.apache.xml.resolver.Catalog"|fork="yes" classname="org.apache.xml.resolver.apps.resolver"|g' tempf
++ sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|g' src/manifest.resolver
++ cp tempf src/manifest.resolver
++ rm tempf
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ ant -Dant.build.javac.source=1.4 jars javadocs
+Buildfile: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/build.xml
+
+external:
+
+prepare:
+     [echo] Building xml-commons-external (version: 1.0.b3) Buildfile: $Revision: 477036 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/docs/javadoc
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/apache/xmlcommons
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build.xml:106: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 441 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+
+jar:
+     [echo] Jarring ./build/xml-apis.jar from ./build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/classes/license
+     [copy] Copying 8 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/classes/license
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-apis.jar
+     [echo] Jarring ./build/xml-apis-ext.jar from ./build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-apis-ext.jar
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package javax.xml...
+  [javadoc] Loading source files for package javax.xml.datatype...
+  [javadoc] Loading source files for package javax.xml.namespace...
+  [javadoc] Loading source files for package javax.xml.parsers...
+  [javadoc] Loading source files for package javax.xml.transform...
+  [javadoc] Loading source files for package javax.xml.transform.dom...
+  [javadoc] Loading source files for package javax.xml.transform.sax...
+  [javadoc] Loading source files for package javax.xml.transform.stream...
+  [javadoc] Loading source files for package javax.xml.validation...
+  [javadoc] Loading source files for package javax.xml.xpath...
+  [javadoc] Loading source files for package org.w3c.css.sac...
+  [javadoc] Loading source files for package org.w3c.css.sac.helpers...
+  [javadoc] Loading source files for package org.w3c.dom...
+  [javadoc] Loading source files for package org.w3c.dom.bootstrap...
+  [javadoc] Loading source files for package org.w3c.dom.css...
+  [javadoc] Loading source files for package org.w3c.dom.events...
+  [javadoc] Loading source files for package org.w3c.dom.html...
+  [javadoc] Loading source files for package org.w3c.dom.ls...
+  [javadoc] Loading source files for package org.w3c.dom.ranges...
+  [javadoc] Loading source files for package org.w3c.dom.smil...
+  [javadoc] Loading source files for package org.w3c.dom.stylesheets...
+  [javadoc] Loading source files for package org.w3c.dom.svg...
+  [javadoc] Loading source files for package org.w3c.dom.traversal...
+  [javadoc] Loading source files for package org.w3c.dom.views...
+  [javadoc] Loading source files for package org.w3c.dom.xpath...
+  [javadoc] Loading source files for package org.xml.sax...
+  [javadoc] Loading source files for package org.xml.sax.ext...
+  [javadoc] Loading source files for package org.xml.sax.helpers...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/ConditionFactory.java:105: warning - @param argument "value" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/ConditionFactory.java:153: warning - @param argument "localName" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/ConditionFactory.java:153: warning - @param argument "specified" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/CSSException.java:78: warning - @param argument "a" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/CSSException.java:87: warning - @param argument "a" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/DocumentHandler.java:32: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/DocumentHandler.java:47: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/DocumentHandler.java:68: warning - @param argument "at-rule" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/DocumentHandler.java:92: warning - @param argument "defaultNamepaceURI" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/DocumentHandler.java:140: warning - @param argument "media" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/Parser.java:157: warning - @param argument "styleValue" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/css/sac/SelectorFactory.java:164: warning - @param argument "adjacent" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:84: warning - Tag @see: missing final '>': "<a href="http://www.w3.org/TR/2000/WD-smil-animation-20000731/">SMIL Animation</a>."
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:104: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:136: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:157: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:181: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/src/org/w3c/dom/smil/TimeEvent.java:23: warning - Tag @see: missing final '>': "<a href="http://www.w3.org/TR/2000/WD-smil-animation-20000731/">SMIL Animation</a>."
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/docs/javadoc/stylesheet.css...
+  [javadoc] 18 warnings
+     [copy] Copying 212 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/docs
+
+exportsrc.all:
+      [tar] Building tar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-external-1.0.b3-src.tar
+     [gzip] Building: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-external-1.0.b3-src.tar.gz
+   [delete] Deleting: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-external-1.0.b3-src.tar
+      [zip] Building zip: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-external-1.0.b3-src.zip
+
+bin.distro:
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3/docs
+     [copy] Copying 736 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3/docs
+     [copy] Copying 3 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3
+     [copy] Copying 9 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3
+      [tar] Building tar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3-bin.tar
+     [gzip] Building: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3-bin.tar.gz
+   [delete] Deleting: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3-bin.tar
+      [zip] Building zip: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/external/build/xml-commons-1.0.b3-bin.zip
+
+all:
+
+jars:
+
+init:
+     [echo] Building xml-commons-which (version: 1.0.b3) Buildfile: $Revision: 226090 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/apidocs/which
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/which.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 12 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/classes
+
+jar:
+     [echo] Jarring ./build/which.jar from ./build/classes
+     [copy] Copying 2 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/which.jar
+
+javadocs:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.apache.env...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/env/Which.java:187: warning - @param argument "projects" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/env/WhichJar.java:332: warning - @param argument "jarName" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/apidocs/which/stylesheet.css...
+  [javadoc] 2 warnings
+
+printerdocs:
+     [echo] xml-commons-which currently doesn't have any user documents in a printable format.
+
+docs:
+
+all:
+
+init:
+     [echo] Building xml-commons-resolver (version: 1.2) Buildfile: $Revision: 395120 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/classes/org/apache/xml/resolver/etc
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/apidocs/resolver
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver
+
+compile:
+     [echo] Compiling...
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/resolver.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 30 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/classes
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/apps/xparse.java:32: warning: [deprecation] org.apache.xml.resolver.tools.ResolvingParser in org.apache.xml.resolver.tools has been deprecated
+    [javac] import org.apache.xml.resolver.tools.ResolvingParser;
+    [javac]                                     ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:35: warning: [deprecation] org.xml.sax.AttributeList in org.xml.sax has been deprecated
+    [javac] import org.xml.sax.AttributeList;
+    [javac]                   ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:38: warning: [deprecation] org.xml.sax.DocumentHandler in org.xml.sax has been deprecated
+    [javac] import org.xml.sax.DocumentHandler;
+    [javac]                   ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:42: warning: [deprecation] org.xml.sax.Parser in org.xml.sax has been deprecated
+    [javac] import org.xml.sax.Parser;
+    [javac]                   ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:79: warning: [deprecation] org.xml.sax.DocumentHandler in org.xml.sax has been deprecated
+    [javac] public class SAXCatalogReader implements CatalogReader, ContentHandler, DocumentHandler {
+    [javac]                                                                         ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogParser.java:39: warning: [deprecation] org.xml.sax.DocumentHandler in org.xml.sax has been deprecated
+    [javac] public interface SAXCatalogParser extends ContentHandler, DocumentHandler {
+    [javac]                                                           ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:317: warning: [deprecation] org.xml.sax.AttributeList in org.xml.sax has been deprecated
+    [javac] 			    AttributeList atts)
+    [javac] 			    ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/tools/ResolvingParser.java:28: warning: [deprecation] org.xml.sax.Parser in org.xml.sax has been deprecated
+    [javac] import org.xml.sax.Parser;
+    [javac]                   ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/tools/ResolvingParser.java:33: warning: [deprecation] org.xml.sax.DocumentHandler in org.xml.sax has been deprecated
+    [javac] import org.xml.sax.DocumentHandler;
+    [javac]                   ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/tools/ResolvingParser.java:34: warning: [deprecation] org.xml.sax.AttributeList in org.xml.sax has been deprecated
+    [javac] import org.xml.sax.AttributeList;
+    [javac]                   ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/tools/ResolvingParser.java:191: warning: [deprecation] org.xml.sax.DocumentHandler in org.xml.sax has been deprecated
+    [javac]   public void setDocumentHandler(DocumentHandler handler) {
+    [javac]                                  ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/tools/ResolvingParser.java:330: warning: [deprecation] org.xml.sax.AttributeList in org.xml.sax has been deprecated
+    [javac]   public void startElement(String name, AttributeList atts)
+    [javac]                                         ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:253: warning: [deprecation] org.xml.sax.Parser in org.xml.sax has been deprecated
+    [javac] 	Parser parser = (Parser) Class.forName(parserClass, true, loader != null ? loader : this.getClass().getClassLoader()).newInstance();
+    [javac] 	^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/src/org/apache/xml/resolver/readers/SAXCatalogReader.java:253: warning: [deprecation] org.xml.sax.Parser in org.xml.sax has been deprecated
+    [javac] 	Parser parser = (Parser) Class.forName(parserClass, true, loader != null ? loader : this.getClass().getClassLoader()).newInstance();
+    [javac] 	                 ^
+    [javac] 14 warnings
+
+jar:
+     [echo] Jarring ./build/resolver.jar from ./build/classes
+     [copy] Copying 4 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/classes/org/apache/xml/resolver/etc
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/java/build/resolver.jar
+
+javadocs:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.apache.xml.resolver...
+  [javadoc] Loading source files for package org.apache.xml.resolver.apps...
+  [javadoc] Loading source files for package org.apache.xml.resolver.helpers...
+  [javadoc] Loading source files for package org.apache.xml.resolver.readers...
+  [javadoc] Loading source files for package org.apache.xml.resolver.tools...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+
+htmldocs:
+     [echo] Building docs for xml-commons-resolver ...
+     [java] Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/xalan/xslt/Process
+     [java] Caused by: java.lang.ClassNotFoundException: org.apache.xalan.xslt.Process
+     [java] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:217)
+     [java] 	at java.security.AccessController.doPrivileged(Native Method)
+     [java] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:205)
+     [java] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:321)
+     [java] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:294)
+     [java] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:266)
+     [java] Could not find the main class: org.apache.xalan.xslt.Process. Program will exit.
+     [java] Java Result: 1
+     [java] Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/xalan/xslt/Process
+     [java] Caused by: java.lang.ClassNotFoundException: org.apache.xalan.xslt.Process
+     [java] 	at java.net.URLClassLoader$1.run(URLClassLoader.java:217)
+     [java] 	at java.security.AccessController.doPrivileged(Native Method)
+     [java] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:205)
+     [java] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:321)
+     [java] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:294)
+     [java] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:266)
+     [java] Could not find the main class: org.apache.xalan.xslt.Process. Program will exit.
+     [java] Java Result: 1
+
+docs:
+
+all:
+
+javadocs:
+     [copy] Copying 133 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-resolver-1_2/build/site/components/apidocs
+
+BUILD SUCCESSFUL
+Total time: 12 seconds
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ pushd xml-commons-external-1_2_06
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ ant -f java/external/build.xml jar javadoc
+Buildfile: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build.xml
+
+prepare:
+     [echo] Building xml-commons-external (version: 1.2.06) Buildfile: $Revision: 476716 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/docs/javadoc
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/apache/xmlcommons
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build.xml:98: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 186 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/classes
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/TransformerException.java:320: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+    [javac] cast to java.lang.Class<?> for a varargs call
+    [javac] cast to java.lang.Class<?>[] for a non-varargs call and to suppress this warning
+    [javac]         	Throwable.class.getMethod("getCause",null);
+    [javac]         	                                     ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/TransformerException.java:353: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+    [javac] cast to java.lang.Class<?> for a varargs call
+    [javac] cast to java.lang.Class<?>[] for a non-varargs call and to suppress this warning
+    [javac]                             null);
+    [javac]                             ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/TransformerException.java:358: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+    [javac] cast to java.lang.Object for a varargs call
+    [javac] cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+    [javac]                         exception = (Throwable) meth.invoke(exception, null);
+    [javac]                                                                        ^
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 3 warnings
+
+jar:
+     [echo] Jarring ./build/xml-apis.jar from ./build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/classes/license
+     [copy] Copying 7 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/classes/license
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/xml-apis.jar
+
+prepare:
+     [echo] Building xml-commons-external (version: 1.2.06) Buildfile: $Revision: 476716 $
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package javax.xml.parsers...
+  [javadoc] Loading source files for package javax.xml.transform...
+  [javadoc] Loading source files for package javax.xml.transform.dom...
+  [javadoc] Loading source files for package javax.xml.transform.sax...
+  [javadoc] Loading source files for package javax.xml.transform.stream...
+  [javadoc] Loading source files for package org.w3c.dom...
+  [javadoc] Loading source files for package org.w3c.dom.css...
+  [javadoc] Loading source files for package org.w3c.dom.events...
+  [javadoc] Loading source files for package org.w3c.dom.html...
+  [javadoc] Loading source files for package org.w3c.dom.ranges...
+  [javadoc] Loading source files for package org.w3c.dom.stylesheets...
+  [javadoc] Loading source files for package org.w3c.dom.traversal...
+  [javadoc] Loading source files for package org.w3c.dom.views...
+  [javadoc] Loading source files for package org.xml.sax...
+  [javadoc] Loading source files for package org.xml.sax.ext...
+  [javadoc] Loading source files for package org.xml.sax.helpers...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/parsers/FactoryConfigurationError.java:80: warning - Parameter "e" is documented more than once.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/Transformer.java:180: warning - @returns is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/TransformerConfigurationException.java:63: warning - Parameter "e" is documented more than once.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/TransformerFactory.java:137: warning - @param argument "source" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/TransformerFactoryConfigurationError.java:77: warning - Parameter "e" is documented more than once.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/dom/DOMResult.java:55: warning - @param argument "n" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/javax/xml/transform/sax/TemplatesHandler.java:53: warning - @param argument "baseID" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/w3c/dom/Node.java:266: warning - Tag @version cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/w3c/dom/Node.java:406: warning - Tag @version cannot be used in method documentation.  It can only be used in the following types of documentation: overview, package, class/interface.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/AttributeList.java:189: warning - @param argument "i" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/ContentHandler.java:60: warning - Tag @link: reference not found: java.net.ContentHandler ContentHandler
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/HandlerBase.java:222: warning - @param argument "attributes" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/XMLReader.java:369: warning - @param argument "source" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/DefaultHandler.java:272: warning - @param argument "atts" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/NamespaceSupport.java:394: warning - @param argument "isAttribute" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/ParserAdapter.java:301: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/ParserAdapter.java:325: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/ParserAdapter.java:349: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:259: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:281: warning - @param argument "resolver" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/XMLFilterImpl.java:303: warning - @param argument "handle" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/src/org/xml/sax/helpers/XMLReaderAdapter.java:127: warning - @param argument "The" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/docs/javadoc/stylesheet.css...
+  [javadoc] 22 warnings
+     [copy] Copying 176 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_2_06/java/external/build/docs
+
+BUILD SUCCESSFUL
+Total time: 4 seconds
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ pushd xml-commons-external-1_3_05
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ pushd java
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java ~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ sed -e 's|call Resolver|call resolver|g' resolver.xml
++ sed -e 's|classname="org.apache.xml.resolver.Catalog"|fork="yes" classname="org.apache.xml.resolver.apps.resolver"|g' tempf
++ sed -e 's|org.apache.xml.resolver.Catalog|org.apache.xml.resolver.apps.resolver|g' src/manifest.resolver
++ cp tempf src/manifest.resolver
++ rm tempf
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ ant jars javadocs
+Buildfile: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/build.xml
+Warning: 'file:./forrest-targets.ent' in /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/build.xml should be expressed simply as './forrest-targets.ent' for compliance with other XML tools
+
+external:
+
+prepare:
+     [echo] Building xml-commons-external (version: 1.0.b3) Buildfile: $Revision: 885010 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/docs/javadoc
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/apache/xmlcommons
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build.xml:106: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 440 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+
+jar:
+     [echo] Jarring ./build/xml-apis.jar from ./build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/classes/license
+     [copy] Copying 8 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/classes/license
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-apis.jar
+     [echo] Jarring ./build/xml-apis-ext.jar from ./build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-apis-ext.jar
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package javax.xml...
+  [javadoc] Loading source files for package javax.xml.datatype...
+  [javadoc] Loading source files for package javax.xml.namespace...
+  [javadoc] Loading source files for package javax.xml.parsers...
+  [javadoc] Loading source files for package javax.xml.transform...
+  [javadoc] Loading source files for package javax.xml.transform.dom...
+  [javadoc] Loading source files for package javax.xml.transform.sax...
+  [javadoc] Loading source files for package javax.xml.transform.stream...
+  [javadoc] Loading source files for package javax.xml.validation...
+  [javadoc] Loading source files for package javax.xml.xpath...
+  [javadoc] Loading source files for package org.w3c.css.sac...
+  [javadoc] Loading source files for package org.w3c.css.sac.helpers...
+  [javadoc] Loading source files for package org.w3c.dom...
+  [javadoc] Loading source files for package org.w3c.dom.bootstrap...
+  [javadoc] Loading source files for package org.w3c.dom.css...
+  [javadoc] Loading source files for package org.w3c.dom.events...
+  [javadoc] Loading source files for package org.w3c.dom.html...
+  [javadoc] Loading source files for package org.w3c.dom.ls...
+  [javadoc] Loading source files for package org.w3c.dom.ranges...
+  [javadoc] Loading source files for package org.w3c.dom.smil...
+  [javadoc] Loading source files for package org.w3c.dom.stylesheets...
+  [javadoc] Loading source files for package org.w3c.dom.svg...
+  [javadoc] Loading source files for package org.w3c.dom.traversal...
+  [javadoc] Loading source files for package org.w3c.dom.views...
+  [javadoc] Loading source files for package org.w3c.dom.xpath...
+  [javadoc] Loading source files for package org.xml.sax...
+  [javadoc] Loading source files for package org.xml.sax.ext...
+  [javadoc] Loading source files for package org.xml.sax.helpers...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/ConditionFactory.java:105: warning - @param argument "value" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/ConditionFactory.java:153: warning - @param argument "localName" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/ConditionFactory.java:153: warning - @param argument "specified" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/CSSException.java:78: warning - @param argument "a" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/CSSException.java:87: warning - @param argument "a" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/DocumentHandler.java:32: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/DocumentHandler.java:47: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/DocumentHandler.java:68: warning - @param argument "at-rule" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/DocumentHandler.java:92: warning - @param argument "defaultNamepaceURI" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/DocumentHandler.java:140: warning - @param argument "media" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/Parser.java:157: warning - @param argument "styleValue" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/css/sac/SelectorFactory.java:164: warning - @param argument "adjacent" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:84: warning - Tag @see: missing final '>': "<a href="http://www.w3.org/TR/2000/WD-smil-animation-20000731/">SMIL Animation</a>."
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:104: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:136: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:157: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:181: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/src/org/w3c/dom/smil/TimeEvent.java:23: warning - Tag @see: missing final '>': "<a href="http://www.w3.org/TR/2000/WD-smil-animation-20000731/">SMIL Animation</a>."
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/docs/javadoc/stylesheet.css...
+  [javadoc] 18 warnings
+     [copy] Copying 212 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/docs
+
+exportsrc.all:
+      [tar] Building tar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-external-1.0.b3-src.tar
+     [gzip] Building: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-external-1.0.b3-src.tar.gz
+   [delete] Deleting: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-external-1.0.b3-src.tar
+      [zip] Building zip: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-external-1.0.b3-src.zip
+
+bin.distro:
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3/docs
+     [copy] Copying 736 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3/docs
+     [copy] Copying 3 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3
+     [copy] Copying 9 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3
+      [tar] Building tar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3-bin.tar
+     [gzip] Building: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3-bin.tar.gz
+   [delete] Deleting: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3-bin.tar
+      [zip] Building zip: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/external/build/xml-commons-1.0.b3-bin.zip
+
+all:
+
+jars:
+
+init:
+     [echo] Building xml-commons-which (version: 1.0.b3) Buildfile: $Revision: 226090 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/apidocs/which
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/which.xml:68: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 12 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/classes
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/env/WhichClass.java:130: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+    [javac] cast to java.lang.Class<?> for a varargs call
+    [javac] cast to java.lang.Class<?>[] for a non-varargs call and to suppress this warning
+    [javac]             m = Thread.class.getMethod("getContextClassLoader", null);
+    [javac]                                                                 ^
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/env/WhichClass.java:144: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+    [javac] cast to java.lang.Object for a varargs call
+    [javac] cast to java.lang.Object[] for a non-varargs call and to suppress this warning
+    [javac]             return (ClassLoader) m.invoke(Thread.currentThread(), null);
+    [javac]                                                                   ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 2 warnings
+
+jar:
+     [echo] Jarring ./build/which.jar from ./build/classes
+     [copy] Copying 2 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/which.jar
+
+javadocs:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.apache.env...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/env/Which.java:187: warning - @param argument "projects" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/env/WhichJar.java:332: warning - @param argument "jarName" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/apidocs/which/stylesheet.css...
+  [javadoc] 2 warnings
+
+printerdocs:
+     [echo] xml-commons-which currently doesn't have any user documents in a printable format.
+
+docs:
+
+all:
+
+init:
+     [echo] Building xml-commons-resolver (version: 1.1.b1) Buildfile: $Revision: 226131 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/classes/org/apache/xml/resolver/etc
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/apidocs/resolver
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/xml/resolver
+
+compile:
+     [echo] Compiling...
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/resolver.xml:88: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 29 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+
+jar:
+     [echo] Jarring ./build/resolver.jar from ./build/classes
+     [copy] Copying 3 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/classes/org/apache/xml/resolver/etc
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/resolver.jar
+
+init:
+     [echo] Building xml-commons-resolver (version: 1.1.b1) Buildfile: $Revision: 226131 $
+
+javadocs:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.apache.xml.resolver...
+  [javadoc] Loading source files for package org.apache.xml.resolver.apps...
+  [javadoc] Loading source files for package org.apache.xml.resolver.helpers...
+  [javadoc] Loading source files for package org.apache.xml.resolver.readers...
+  [javadoc] Loading source files for package org.apache.xml.resolver.tools...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/CatalogEntry.java:229: warning - @param argument "name" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/CatalogManager.java:472: warning - @return tag cannot be used in method with void return type.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/CatalogManager.java:612: warning - @return tag cannot be used in method with void return type.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/helpers/PublicId.java:147: warning - @param argument "publicId" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/src/org/apache/xml/resolver/readers/TR9401CatalogReader.java:104: warning - @param argument "fileUrl" is not a parameter name.
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/java/build/apidocs/resolver/stylesheet.css...
+  [javadoc] 5 warnings
+
+javadocs:
+     [copy] Copying 131 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_3_05/build/site/components/apidocs
+
+BUILD SUCCESSFUL
+Total time: 14 seconds
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ pushd xml-commons-external-1_4_01
+~/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01 ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ ant -f java/external/build.xml jar javadoc
+Buildfile: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build.xml
+
+prepare:
+     [echo] Building xml-commons-external (version: 1.4.01) Buildfile: $Revision: 670234 $
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/docs
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/docs/javadoc
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/apache/xmlcommons
+     [copy] Copying 1 file to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build
+
+compile:
+    [javac] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build.xml:106: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 478 source files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/classes
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+
+jar:
+     [echo] Jarring ./build/xml-apis.jar from ./build/classes
+    [mkdir] Created dir: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/classes/license
+     [copy] Copying 8 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/classes/license
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/xml-apis.jar
+     [echo] Jarring ./build/xml-apis-ext.jar from ./build/classes
+      [jar] Building jar: /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/xml-apis-ext.jar
+
+prepare:
+     [echo] Building xml-commons-external (version: 1.4.01) Buildfile: $Revision: 670234 $
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package javax.xml...
+  [javadoc] Loading source files for package javax.xml.datatype...
+  [javadoc] Loading source files for package javax.xml.namespace...
+  [javadoc] Loading source files for package javax.xml.parsers...
+  [javadoc] Loading source files for package javax.xml.stream...
+  [javadoc] Loading source files for package javax.xml.stream.events...
+  [javadoc] Loading source files for package javax.xml.stream.util...
+  [javadoc] Loading source files for package javax.xml.transform...
+  [javadoc] Loading source files for package javax.xml.transform.dom...
+  [javadoc] Loading source files for package javax.xml.transform.sax...
+  [javadoc] Loading source files for package javax.xml.transform.stax...
+  [javadoc] Loading source files for package javax.xml.transform.stream...
+  [javadoc] Loading source files for package javax.xml.validation...
+  [javadoc] Loading source files for package javax.xml.xpath...
+  [javadoc] Loading source files for package org.w3c.css.sac...
+  [javadoc] Loading source files for package org.w3c.css.sac.helpers...
+  [javadoc] Loading source files for package org.w3c.dom...
+  [javadoc] Loading source files for package org.w3c.dom.bootstrap...
+  [javadoc] Loading source files for package org.w3c.dom.css...
+  [javadoc] Loading source files for package org.w3c.dom.events...
+  [javadoc] Loading source files for package org.w3c.dom.html...
+  [javadoc] Loading source files for package org.w3c.dom.ls...
+  [javadoc] Loading source files for package org.w3c.dom.ranges...
+  [javadoc] Loading source files for package org.w3c.dom.smil...
+  [javadoc] Loading source files for package org.w3c.dom.stylesheets...
+  [javadoc] Loading source files for package org.w3c.dom.svg...
+  [javadoc] Loading source files for package org.w3c.dom.traversal...
+  [javadoc] Loading source files for package org.w3c.dom.views...
+  [javadoc] Loading source files for package org.w3c.dom.xpath...
+  [javadoc] Loading source files for package org.xml.sax...
+  [javadoc] Loading source files for package org.xml.sax.ext...
+  [javadoc] Loading source files for package org.xml.sax.helpers...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] Standard Doclet version 1.6.0_27
+  [javadoc] Building tree for all the packages and classes...
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/ConditionFactory.java:105: warning - @param argument "value" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/ConditionFactory.java:153: warning - @param argument "localName" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/ConditionFactory.java:153: warning - @param argument "specified" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/CSSException.java:78: warning - @param argument "a" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/CSSException.java:87: warning - @param argument "a" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/DocumentHandler.java:32: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/DocumentHandler.java:47: warning - @param argument "uri" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/DocumentHandler.java:68: warning - @param argument "at-rule" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/DocumentHandler.java:92: warning - @param argument "defaultNamepaceURI" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/DocumentHandler.java:140: warning - @param argument "media" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/Parser.java:157: warning - @param argument "styleValue" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/css/sac/SelectorFactory.java:164: warning - @param argument "adjacent" is not a parameter name.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:84: warning - Tag @see: missing final '>': "<a href="http://www.w3.org/TR/2000/WD-smil-animation-20000731/">SMIL Animation</a>."
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:104: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:136: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:157: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/dom/smil/ElementTimeControl.java:181: warning - @raise is an unknown tag.
+  [javadoc] /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/src/org/w3c/dom/smil/TimeEvent.java:23: warning - Tag @see: missing final '>': "<a href="http://www.w3.org/TR/2000/WD-smil-animation-20000731/">SMIL Animation</a>."
+  [javadoc] Building index for all the packages and classes...
+  [javadoc] Building index for all classes...
+  [javadoc] Generating /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/docs/javadoc/stylesheet.css...
+  [javadoc] 18 warnings
+     [copy] Copying 212 files to /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01/xml-commons-external-1_4_01/java/external/build/docs
+
+BUILD SUCCESSFUL
+Total time: 6 seconds
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ exit 0
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.67244
++ umask 022
++ cd /home/bero/abf/xml-commons/BUILD
++ /bin/rm -rf /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot
++ /bin/mkdir -p /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot
++ cd xml-commons-1.4.01
++ '[' 1 -eq 1 ']'
++ rm -rf /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java
++ install -m 644 xml-commons-1_0_b2/java/external/build/xml-apis.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-jaxp-1.1-apis-1.4.01.jar
++ install -m 644 xml-commons-1_0_b2/java/build/resolver.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-resolver10-1.4.01.jar
++ install -m 644 xml-commons-1_0_b2/java/build/which.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-which10-1.4.01.jar
++ install -m 644 xml-commons-resolver-1_2/java/build/resolver.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-resolver11-1.4.01.jar
++ install -m 644 xml-commons-external-1_3_05/java/build/which.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-which11-1.4.01.jar
++ install -m 644 xml-commons-external-1_2_06/java/external/build/xml-apis.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-jaxp-1.2-apis-1.4.01.jar
++ install -m 644 xml-commons-external-1_3_05/java/external/build/xml-apis.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-jaxp-1.3-apis-1.4.01.jar
++ install -m 644 xml-commons-external-1_3_05/java/external/build/xml-apis-ext.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-jaxp-1.3-apis-ext-1.4.01.jar
++ install -m 644 xml-commons-resolver-1_2/java/build/resolver.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-resolver12-1.4.01.jar
++ install -m 644 xml-commons-resolver-1_2/java/build/which.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-which12-1.4.01.jar
++ install -m 644 xml-commons-external-1_4_01/java/external/build/xml-apis.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-jaxp-1.4-apis-1.4.01.jar
++ install -m 644 xml-commons-external-1_4_01/java/external/build/xml-apis-ext.jar /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-jaxp-1.4-apis-ext-1.4.01.jar
++ pushd /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java
+~/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java ~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ for jar in '*-1.4.01*'
+++ echo xml-commons-jaxp-1.1-apis-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-jaxp-1.1-apis-1.4.01.jar xml-commons-jaxp-1.1-apis.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-jaxp-1.2-apis-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-jaxp-1.2-apis-1.4.01.jar xml-commons-jaxp-1.2-apis.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-jaxp-1.3-apis-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-jaxp-1.3-apis-1.4.01.jar xml-commons-jaxp-1.3-apis.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-jaxp-1.3-apis-ext-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-jaxp-1.3-apis-ext-1.4.01.jar xml-commons-jaxp-1.3-apis-ext.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-jaxp-1.4-apis-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-jaxp-1.4-apis-1.4.01.jar xml-commons-jaxp-1.4-apis.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-jaxp-1.4-apis-ext-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-jaxp-1.4-apis-ext-1.4.01.jar xml-commons-jaxp-1.4-apis-ext.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-resolver10-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-resolver10-1.4.01.jar xml-commons-resolver10.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-resolver11-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-resolver11-1.4.01.jar xml-commons-resolver11.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-resolver12-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-resolver12-1.4.01.jar xml-commons-resolver12.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-which10-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-which10-1.4.01.jar xml-commons-which10.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-which11-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-which11-1.4.01.jar xml-commons-which11.jar
++ for jar in '*-1.4.01*'
+++ echo xml-commons-which12-1.4.01.jar
+++ sed -e 's|-1.4.01\.jar|.jar|'
++ ln -sf xml-commons-which12-1.4.01.jar xml-commons-which12.jar
++ ln -sf xml-commons-jaxp-1.1-apis.jar jaxp11.jar
++ ln -sf xml-commons-jaxp-1.2-apis.jar jaxp12.jar
++ ln -sf xml-commons-jaxp-1.3-apis.jar jaxp13.jar
++ ln -sf xml-commons-jaxp-1.3-apis.jar dom3.jar
++ ln -sf xml-commons-jaxp-1.4-apis.jar jaxp14.jar
++ popd
+~/abf/xml-commons/BUILD/xml-commons-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.1-apis-1.4.01
++ cp -pr xml-commons-1_0_b2/java/external/build/docs/javadoc/allclasses-frame.html xml-commons-1_0_b2/java/external/build/docs/javadoc/allclasses-noframe.html xml-commons-1_0_b2/java/external/build/docs/javadoc/constant-values.html xml-commons-1_0_b2/java/external/build/docs/javadoc/deprecated-list.html xml-commons-1_0_b2/java/external/build/docs/javadoc/help-doc.html xml-commons-1_0_b2/java/external/build/docs/javadoc/index-all.html xml-commons-1_0_b2/java/external/build/docs/javadoc/index.html xml-commons-1_0_b2/java/external/build/docs/javadoc/javax xml-commons-1_0_b2/java/external/build/docs/javadoc/org xml-commons-1_0_b2/java/external/build/docs/javadoc/overview-frame.html xml-commons-1_0_b2/java/external/build/docs/javadoc/overview-summary.html xml-commons-1_0_b2/java/external/build/docs/javadoc/overview-tree.html xml-commons-1_0_b2/java/external/build/docs/javadoc/package-list xml-commons-1_0_b2/java/external/build/docs/javadoc/resources xml-commons-1_0_b2/java/external/build/docs/javadoc/serialized-form.html xml-commons-1_0_b2/java/external/build/docs/javadoc/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.1-apis-1.4.01
++ ln -s xml-commons-jaxp-1.1-apis-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.1-apis
++ rm -rf xml-commons-1_0_b2/java/external/build/docs/javadoc
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver10-1.4.01/org/apache/xml
++ cp -pr xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/xml/resolver /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver10-1.4.01/org/apache/xml
++ ln -s xml-commons-resolver10-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver10
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver11-1.4.01/
++ cp -pr xml-commons-resolver-1_2/build/site/components/apidocs/resolver xml-commons-resolver-1_2/build/site/components/apidocs/which /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver10-1.4.01/
++ ln -s xml-commons-resolver11-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver11
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which10-1.4.01/org/apache/env
++ cp -pr xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/Which.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichAnt.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichClass.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichConstant.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichCrimson.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichFactory.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichJar.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichProject.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichSaxon.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichXalan.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichXerces.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/WhichXmlCommons.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/class-use xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/package-frame.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/package-summary.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/package-tree.html xml-commons-1_0_b2/java/build/docs/javadocs/org/apache/env/package-use.html /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which10-1.4.01/org/apache/env
++ ln -s xml-commons-which10-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which10
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.2-apis-1.4.01
++ cp -pr xml-commons-external-1_2_06/java/external/build/docs/javadoc/allclasses-frame.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/allclasses-noframe.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/constant-values.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/deprecated-list.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/help-doc.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/index-all.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/index.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/javax xml-commons-external-1_2_06/java/external/build/docs/javadoc/org xml-commons-external-1_2_06/java/external/build/docs/javadoc/overview-frame.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/overview-summary.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/overview-tree.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/package-list xml-commons-external-1_2_06/java/external/build/docs/javadoc/resources xml-commons-external-1_2_06/java/external/build/docs/javadoc/serialized-form.html xml-commons-external-1_2_06/java/external/build/docs/javadoc/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.2-apis-1.4.01
++ ln -s xml-commons-jaxp-1.2-apis-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.2-apis
++ rm -rf xml-commons-external-1_2_06/java/external/build/docs/javadoc
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.3-apis-1.4.01
++ cp -pr xml-commons-external-1_3_05/java/external/build/docs/javadoc/allclasses-frame.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/allclasses-noframe.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/constant-values.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/deprecated-list.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/help-doc.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/index-all.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/index.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/javax xml-commons-external-1_3_05/java/external/build/docs/javadoc/org xml-commons-external-1_3_05/java/external/build/docs/javadoc/overview-frame.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/overview-summary.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/overview-tree.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/package-list xml-commons-external-1_3_05/java/external/build/docs/javadoc/resources xml-commons-external-1_3_05/java/external/build/docs/javadoc/serialized-form.html xml-commons-external-1_3_05/java/external/build/docs/javadoc/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.3-apis-1.4.01
++ ln -s xml-commons-jaxp-1.3-apis-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.3-apis
++ rm -rf xml-commons-external-1_3_05/java/external/build/docs/javadoc
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.4-apis-1.4.01
++ cp -pr xml-commons-external-1_4_01/java/external/build/docs/javadoc/allclasses-frame.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/allclasses-noframe.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/constant-values.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/deprecated-list.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/help-doc.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/index-all.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/index.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/javax xml-commons-external-1_4_01/java/external/build/docs/javadoc/org xml-commons-external-1_4_01/java/external/build/docs/javadoc/overview-frame.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/overview-summary.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/overview-tree.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/package-list xml-commons-external-1_4_01/java/external/build/docs/javadoc/resources xml-commons-external-1_4_01/java/external/build/docs/javadoc/serialized-form.html xml-commons-external-1_4_01/java/external/build/docs/javadoc/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.4-apis-1.4.01
++ ln -s xml-commons-jaxp-1.4-apis-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-jaxp-1.4-apis
++ rm -rf xml-commons-external-1_4_01/java/external/build/docs/javadoc
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver12-1.4.01
++ cp -pr xml-commons-external-1_3_05/java/build/apidocs/resolver/allclasses-frame.html xml-commons-external-1_3_05/java/build/apidocs/resolver/allclasses-noframe.html xml-commons-external-1_3_05/java/build/apidocs/resolver/constant-values.html xml-commons-external-1_3_05/java/build/apidocs/resolver/deprecated-list.html xml-commons-external-1_3_05/java/build/apidocs/resolver/help-doc.html xml-commons-external-1_3_05/java/build/apidocs/resolver/index-all.html xml-commons-external-1_3_05/java/build/apidocs/resolver/index.html xml-commons-external-1_3_05/java/build/apidocs/resolver/org xml-commons-external-1_3_05/java/build/apidocs/resolver/overview-frame.html xml-commons-external-1_3_05/java/build/apidocs/resolver/overview-summary.html xml-commons-external-1_3_05/java/build/apidocs/resolver/overview-tree.html xml-commons-external-1_3_05/java/build/apidocs/resolver/package-list xml-commons-external-1_3_05/java/build/apidocs/resolver/resources xml-commons-external-1_3_05/java/build/apidocs/resolver/serialized-form.html xml-commons-external-1_3_05/java/build/apidocs/resolver/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver12-1.4.01
++ ln -s xml-commons-resolver-12-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-resolver12
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which11-1.4.01
++ cp -pr xml-commons-external-1_3_05/java/build/apidocs/which/allclasses-frame.html xml-commons-external-1_3_05/java/build/apidocs/which/allclasses-noframe.html xml-commons-external-1_3_05/java/build/apidocs/which/constant-values.html xml-commons-external-1_3_05/java/build/apidocs/which/deprecated-list.html xml-commons-external-1_3_05/java/build/apidocs/which/help-doc.html xml-commons-external-1_3_05/java/build/apidocs/which/index-all.html xml-commons-external-1_3_05/java/build/apidocs/which/index.html xml-commons-external-1_3_05/java/build/apidocs/which/org xml-commons-external-1_3_05/java/build/apidocs/which/overview-tree.html xml-commons-external-1_3_05/java/build/apidocs/which/package-list xml-commons-external-1_3_05/java/build/apidocs/which/resources xml-commons-external-1_3_05/java/build/apidocs/which/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which11-1.4.01
++ ln -s xml-commons-which11-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which11
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which12-1.4.01
++ cp -pr xml-commons-resolver-1_2/java/build/apidocs/which/allclasses-frame.html xml-commons-resolver-1_2/java/build/apidocs/which/allclasses-noframe.html xml-commons-resolver-1_2/java/build/apidocs/which/constant-values.html xml-commons-resolver-1_2/java/build/apidocs/which/deprecated-list.html xml-commons-resolver-1_2/java/build/apidocs/which/help-doc.html xml-commons-resolver-1_2/java/build/apidocs/which/index-all.html xml-commons-resolver-1_2/java/build/apidocs/which/index.html xml-commons-resolver-1_2/java/build/apidocs/which/org xml-commons-resolver-1_2/java/build/apidocs/which/overview-tree.html xml-commons-resolver-1_2/java/build/apidocs/which/package-list xml-commons-resolver-1_2/java/build/apidocs/which/resources xml-commons-resolver-1_2/java/build/apidocs/which/stylesheet.css /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which12-1.4.01
++ ln -s xml-commons-which12-1.4.01 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-which12
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/man/man1
++ cp -p /home/bero/abf/xml-commons/xml-commons.which10.script /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-which10
++ cp -p /home/bero/abf/xml-commons/xml-commons.which11.script /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-which11
++ cp -p /home/bero/abf/xml-commons/xml-commons.which12.script /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-which12
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ sed -e 's|__RESOLVERDIR__|/etc/java/resolver|'
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/etc/java/resolver
++ install -m 0644 /home/bero/abf/xml-commons/xml-commons-resolver-CatalogManager.properties /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/etc/java/resolver/CatalogManager.properties
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.1-apis-1.4.01
++ install -m 0644 xml-commons-1_0_b2/java/external/LICENSE.dom-documentation.txt xml-commons-1_0_b2/java/external/LICENSE.dom-software.txt xml-commons-1_0_b2/java/external/LICENSE.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.1-apis-1.4.01
++ install -m 0644 xml-commons-1_0_b2/java/external/README-sax xml-commons-1_0_b2/java/external/README.dom.txt xml-commons-1_0_b2/java/external/README.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.1-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.2-apis-1.4.01
++ install -m 0644 xml-commons-external-1_2_06/java/external/LICENSE xml-commons-external-1_2_06/java/external/LICENSE.dom-documentation.txt xml-commons-external-1_2_06/java/external/LICENSE.dom-software.txt xml-commons-external-1_2_06/java/external/LICENSE.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.2-apis-1.4.01
++ install -m 0644 xml-commons-external-1_2_06/java/external/README-sax xml-commons-external-1_2_06/java/external/README.dom.txt xml-commons-external-1_2_06/java/external/README.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.2-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.3-apis-1.4.01
++ install -m 0644 xml-commons-external-1_3_05/java/external/LICENSE xml-commons-external-1_3_05/java/external/LICENSE.dom-documentation.txt xml-commons-external-1_3_05/java/external/LICENSE.dom-software.txt xml-commons-external-1_3_05/java/external/LICENSE.sac.html xml-commons-external-1_3_05/java/external/LICENSE.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.3-apis-1.4.01
++ install -m 0644 xml-commons-external-1_3_05/java/external/README-sax xml-commons-external-1_3_05/java/external/README.dom.txt xml-commons-external-1_3_05/java/external/README.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.3-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.4-apis-1.4.01
++ install -m 0644 xml-commons-external-1_4_01/java/external/LICENSE xml-commons-external-1_4_01/java/external/LICENSE.dom-documentation.txt xml-commons-external-1_4_01/java/external/LICENSE.dom-software.txt xml-commons-external-1_4_01/java/external/LICENSE.sac.html xml-commons-external-1_4_01/java/external/LICENSE.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.4-apis-1.4.01
++ install -m 0644 xml-commons-external-1_4_01/java/external/README-sax xml-commons-external-1_4_01/java/external/README.dom.txt xml-commons-external-1_4_01/java/external/README.sax.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/xml-commons-jaxp-1.4-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.1-apis-1.4.01
++ cp -pr xml-commons-1_0_b2/java/external/build/docs/dom xml-commons-1_0_b2/java/external/build/docs/sax /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.1-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.2-apis-1.4.01
++ cp -pr xml-commons-external-1_2_06/java/external/build/docs/dom xml-commons-external-1_2_06/java/external/build/docs/sax /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.2-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.3-apis-1.4.01
++ cp -pr xml-commons-external-1_3_05/java/external/build/docs/dom /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.3-apis-1.4.01
++ install -d -m 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.4-apis-1.4.01
++ cp -pr xml-commons-external-1_4_01/java/external/build/docs/dom /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons-jaxp-1.4-apis-1.4.01
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-apis.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-which.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/xml-commons-resolver.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/jaxp.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/dom3.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/dom2.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/dom.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/sax2.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/java/sax.jar
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-which
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-resolver
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-xread
++ touch /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin/xml-xparse
++ ln -s /etc/alternatives/xml-commons-apis-javadoc /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/javadoc/xml-commons-apis
++ /bin/chmod 755 /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/bin
++ /usr/bin/perl -pi -e 's/\r$//g' README.html KEYS
+Can't open README.html: No such file or directory.
+Can't open KEYS: No such file or directory.
++ '[' -n '' ']'
++ /usr/share/spec-helper/clean_files
++ '[' -n '' ']'
++ COMPRESS='xz -0f --text'
++ COMPRESS_EXT=.xz
++ /usr/lib/rpm/brp-compress
++ '[' -n '' ']'
++ /usr/share/spec-helper/relink_symlinks
++ '[' -n '' ']'
++ /usr/share/spec-helper/clean_perl
++ '[' -n '' ']'
++ /usr/share/spec-helper/lib_symlinks
++ '[' -n '' ']'
++ /usr/share/spec-helper/gprintify
++ '[' -n '' ']'
++ /usr/share/spec-helper/fix_mo
++ '[' -n '' ']'
++ /usr/share/spec-helper/fix_xdg
++ '[' -n '' ']'
++ /usr/share/spec-helper/fix_file_permissions
++ '[' -n '' ']'
++ /usr/share/spec-helper/fix_pamd
++ '[' -n '' ']'
++ /usr/share/spec-helper/remove_info_dir
++ '[' -n '' ']'
++ /usr/share/spec-helper/remove_libtool_files
++ '[' -n '' ']'
++ /usr/share/spec-helper/check_elf_files
++ '[' -n '' ']'
++ /usr/share/spec-helper/remove_rpath
++ /usr/lib/rpm/find-debuginfo.sh -r /home/bero/abf/xml-commons/BUILD/xml-commons-1.4.01
+
+Processing files: xml-commons-1.4.01-1.noarch
+Executing(%doc): /bin/sh -e /var/tmp/rpm-tmp.16305
++ umask 022
++ cd /home/bero/abf/xml-commons/BUILD
++ cd xml-commons-1.4.01
++ DOCDIR=/home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons
++ export DOCDIR
++ /bin/mkdir -p /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons
++ cp -pr xml-commons-external-1_3_05/LICENSE.txt xml-commons-external-1_3_05/README.txt xml-commons-external-1_3_05/readme-build.txt /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons
++ '[' -n '' ']'
++ /usr/share/spec-helper/fix_eol /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot/usr/share/doc/xml-commons
+Removing dependency on self: R config(xml-commons) = 0:1.4.01-1:2013.0
+Provides: config(xml-commons) = 0:1.4.01-1:2013.0
+Processing files: xml-commons-jaxp-1.1-apis-1.4.01-1.noarch
+Provides: dom = 2 jaxp = 1.1 sax = 2.0 xml-commons-apis = 0:1.4.01 xslt = 1.0
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-apis <= 0:1.3.02-2jpp
+Processing files: xml-commons-jaxp-1.1-apis-javadoc-1.4.01-1.noarch
+Provides: xml-commons-apis-javadoc = 0:1.4.01
+Processing files: xml-commons-jaxp-1.1-apis-manual-1.4.01-1.noarch
+Processing files: xml-commons-which10-1.4.01-1.noarch
+Provides: xml-commons-which = 0:1.4.01
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-which < 0:1.3.03
+Processing files: xml-commons-which10-javadoc-1.4.01-1.noarch
+Processing files: xml-commons-resolver10-1.4.01-1.noarch
+Provides: xml-commons-resolver = 0:1.4.01
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-resolver < 0:1.3.03
+Processing files: xml-commons-resolver10-javadoc-1.4.01-1.noarch
+Processing files: xml-commons-resolver11-1.4.01-1.noarch
+Provides: xml-commons-resolver = 0:1.4.01
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-resolver < 0:1.3.03
+Processing files: xml-commons-resolver11-javadoc-1.4.01-1.noarch
+Processing files: xml-commons-jaxp-1.2-apis-1.4.01-1.noarch
+Provides: dom = 2 jaxp = 1.2 sax = 2.0.1 xml-commons-apis = 0:1.4.01 xslt = 1.0
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-apis <= 0:1.3.02-2jpp
+Processing files: xml-commons-jaxp-1.2-apis-javadoc-1.4.01-1.noarch
+Provides: xml-commons-apis-javadoc = 0:1.4.01
+Processing files: xml-commons-jaxp-1.2-apis-manual-1.4.01-1.noarch
+Processing files: xml-commons-jaxp-1.3-apis-1.4.01-1.noarch
+Provides: dom = 3 jaxp = 1.3 sax = 2.0.2 xml-commons-apis = 0:1.4.01 xslt = 1.0
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-apis <= 0:1.3.02-2jpp
+Processing files: xml-commons-jaxp-1.3-apis-javadoc-1.4.01-1.noarch
+Provides: xml-commons-apis-javadoc = 0:1.4.01
+Processing files: xml-commons-jaxp-1.3-apis-manual-1.4.01-1.noarch
+Processing files: xml-commons-jaxp-1.4-apis-1.4.01-1.noarch
+Provides: dom = 3 jaxp = 1.4 sax = 2.0.2 xml-commons-apis = 0:1.4.01 xslt = 1.0
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-apis <= 0:1.3.02-2jpp
+Processing files: xml-commons-jaxp-1.4-apis-javadoc-1.4.01-1.noarch
+Provides: xml-commons-apis-javadoc = 0:1.4.01
+Processing files: xml-commons-jaxp-1.4-apis-manual-1.4.01-1.noarch
+Processing files: xml-commons-which11-1.4.01-1.noarch
+Provides: xml-commons-which = 0:1.4.01
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-which < 0:1.3.03
+Processing files: xml-commons-which11-javadoc-1.4.01-1.noarch
+Processing files: xml-commons-which12-1.4.01-1.noarch
+Provides: xml-commons-which = 0:1.4.01
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-which < 0:1.3.03
+Processing files: xml-commons-which12-javadoc-1.4.01-1.noarch
+Processing files: xml-commons-resolver12-1.4.01-1.noarch
+Provides: xml-commons-resolver = 0:1.4.01
+Requires(post): update-alternatives
+Requires(preun): update-alternatives
+Obsoletes: xml-commons-resolver < 0:1.3.03
+Processing files: xml-commons-resolver12-javadoc-1.4.01-1.noarch
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot
+warning: File(s) packaged into both xml-commons-jaxp-1.1-apis-1.4.01-1.noarch and xml-commons-jaxp-1.2-apis-1.4.01-1.noarch:
+	/usr/share/java/dom.jar
+	/usr/share/java/dom2.jar
+	/usr/share/java/jaxp.jar
+	/usr/share/java/sax.jar
+	/usr/share/java/sax2.jar
+	/usr/share/java/xml-commons-apis.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.1-apis-1.4.01-1.noarch and xml-commons-jaxp-1.3-apis-1.4.01-1.noarch:
+	/usr/share/java/dom.jar
+	/usr/share/java/jaxp.jar
+	/usr/share/java/sax.jar
+	/usr/share/java/sax2.jar
+	/usr/share/java/xml-commons-apis.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.1-apis-1.4.01-1.noarch and xml-commons-jaxp-1.4-apis-1.4.01-1.noarch:
+	/usr/share/java/dom.jar
+	/usr/share/java/jaxp.jar
+	/usr/share/java/sax.jar
+	/usr/share/java/sax2.jar
+	/usr/share/java/xml-commons-apis.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.1-apis-javadoc-1.4.01-1.noarch and xml-commons-jaxp-1.2-apis-javadoc-1.4.01-1.noarch:
+	/usr/share/javadoc/xml-commons-apis
+warning: File(s) packaged into both xml-commons-jaxp-1.1-apis-javadoc-1.4.01-1.noarch and xml-commons-jaxp-1.3-apis-javadoc-1.4.01-1.noarch:
+	/usr/share/javadoc/xml-commons-apis
+warning: File(s) packaged into both xml-commons-jaxp-1.1-apis-javadoc-1.4.01-1.noarch and xml-commons-jaxp-1.4-apis-javadoc-1.4.01-1.noarch:
+	/usr/share/javadoc/xml-commons-apis
+warning: File(s) packaged into both xml-commons-which10-1.4.01-1.noarch and xml-commons-which11-1.4.01-1.noarch:
+	/usr/bin/xml-which
+	/usr/share/java/xml-commons-which.jar
+warning: File(s) packaged into both xml-commons-which10-1.4.01-1.noarch and xml-commons-which12-1.4.01-1.noarch:
+	/usr/bin/xml-which
+	/usr/share/java/xml-commons-which.jar
+warning: File(s) packaged into both xml-commons-resolver10-1.4.01-1.noarch and xml-commons-resolver11-1.4.01-1.noarch:
+	/usr/bin/xml-resolver
+	/usr/bin/xml-xparse
+	/usr/bin/xml-xread
+	/usr/share/java/xml-commons-resolver.jar
+warning: File(s) packaged into both xml-commons-resolver10-1.4.01-1.noarch and xml-commons-resolver12-1.4.01-1.noarch:
+	/usr/bin/xml-resolver
+	/usr/bin/xml-xparse
+	/usr/bin/xml-xread
+	/usr/share/java/xml-commons-resolver.jar
+warning: File(s) packaged into both xml-commons-resolver11-1.4.01-1.noarch and xml-commons-resolver12-1.4.01-1.noarch:
+	/usr/bin/xml-resolver
+	/usr/bin/xml-xparse
+	/usr/bin/xml-xread
+	/usr/share/java/xml-commons-resolver.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.2-apis-1.4.01-1.noarch and xml-commons-jaxp-1.3-apis-1.4.01-1.noarch:
+	/usr/share/java/dom.jar
+	/usr/share/java/jaxp.jar
+	/usr/share/java/sax.jar
+	/usr/share/java/sax2.jar
+	/usr/share/java/xml-commons-apis.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.2-apis-1.4.01-1.noarch and xml-commons-jaxp-1.4-apis-1.4.01-1.noarch:
+	/usr/share/java/dom.jar
+	/usr/share/java/jaxp.jar
+	/usr/share/java/sax.jar
+	/usr/share/java/sax2.jar
+	/usr/share/java/xml-commons-apis.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.2-apis-javadoc-1.4.01-1.noarch and xml-commons-jaxp-1.3-apis-javadoc-1.4.01-1.noarch:
+	/usr/share/javadoc/xml-commons-apis
+warning: File(s) packaged into both xml-commons-jaxp-1.2-apis-javadoc-1.4.01-1.noarch and xml-commons-jaxp-1.4-apis-javadoc-1.4.01-1.noarch:
+	/usr/share/javadoc/xml-commons-apis
+warning: File(s) packaged into both xml-commons-jaxp-1.3-apis-1.4.01-1.noarch and xml-commons-jaxp-1.4-apis-1.4.01-1.noarch:
+	/usr/share/java/dom.jar
+	/usr/share/java/dom3.jar
+	/usr/share/java/jaxp.jar
+	/usr/share/java/sax.jar
+	/usr/share/java/sax2.jar
+	/usr/share/java/xml-commons-apis.jar
+warning: File(s) packaged into both xml-commons-jaxp-1.3-apis-javadoc-1.4.01-1.noarch and xml-commons-jaxp-1.4-apis-javadoc-1.4.01-1.noarch:
+	/usr/share/javadoc/xml-commons-apis
+warning: File(s) packaged into both xml-commons-which11-1.4.01-1.noarch and xml-commons-which12-1.4.01-1.noarch:
+	/usr/bin/xml-which
+	/usr/share/java/xml-commons-which.jar
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.1-apis-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.1-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.1-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which10-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which10-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver10-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver10-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver11-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver11-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.2-apis-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.2-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.2-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.3-apis-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.3-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.3-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.4-apis-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.4-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.4-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which11-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which11-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which12-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which12-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver12-1.4.01-1-mdv2013.0.noarch.rpm
+Wrote: /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver12-javadoc-1.4.01-1-mdv2013.0.noarch.rpm
+Executing "/usr/bin/rpmlint -T -f /home/bero/abf/xml-commons/xml-commons.rpmlintrc /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.1-apis-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.1-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.1-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which10-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which10-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver10-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver10-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver11-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver11-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.2-apis-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.2-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.2-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.3-apis-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.3-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.3-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.4-apis-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.4-apis-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-jaxp-1.4-apis-manual-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which11-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which11-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which12-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-which12-javadoc-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver12-1.4.01-1-mdv2013.0.noarch.rpm /home/bero/abf/xml-commons/RPMS/noarch/xml-commons-resolver12-javadoc-1.4.01-1-mdv2013.0.noarch.rpm":
+xml-commons-jaxp-1.1-apis-javadoc.noarch: W: symlink-should-be-relative /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.2-apis-javadoc.noarch: W: symlink-should-be-relative /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.3-apis-javadoc.noarch: W: symlink-should-be-relative /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.4-apis-javadoc.noarch: W: symlink-should-be-relative /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons.noarch: W: spelling-error %description -l en_US org -> or, orig, orgy
+
+xml-commons.noarch: W: spelling-error %description -l en_US subprojects -> subproject, sub projects, sub-projects
+
+xml-commons-jaxp-1.1-apis.noarch: W: spelling-error %description -l en_US org -> or, orig, orgy
+
+xml-commons-jaxp-1.1-apis.noarch: W: spelling-error %description -l en_US javax -> Java
+
+xml-commons-jaxp-1.2-apis.noarch: W: spelling-error %description -l en_US org -> or, orig, orgy
+
+xml-commons-jaxp-1.2-apis.noarch: W: spelling-error %description -l en_US javax -> Java
+
+xml-commons-jaxp-1.3-apis.noarch: W: spelling-error %description -l en_US org -> or, orig, orgy
+
+xml-commons-jaxp-1.3-apis.noarch: W: spelling-error %description -l en_US Thi -> Thu, Th, Ti
+
+xml-commons-jaxp-1.3-apis.noarch: W: spelling-error %description -l en_US javax -> Java
+
+xml-commons-jaxp-1.3-apis.noarch: W: spelling-error %description -l en_US datatype -> data type, data-type, dataset
+
+xml-commons-jaxp-1.3-apis.noarch: W: spelling-error %description -l en_US xtype -> type, x type
+
+xml-commons-jaxp-1.4-apis.noarch: W: spelling-error %description -l en_US org -> or, orig, orgy
+
+xml-commons-jaxp-1.4-apis.noarch: W: spelling-error %description -l en_US Thi -> Thu, Th, Ti
+
+xml-commons-jaxp-1.4-apis.noarch: W: spelling-error %description -l en_US javax -> Java
+
+xml-commons-jaxp-1.4-apis.noarch: W: spelling-error %description -l en_US datatype -> data type, data-type, dataset
+
+xml-commons-jaxp-1.4-apis.noarch: W: spelling-error %description -l en_US xtype -> type, x type
+
+xml-commons-jaxp-1.3-apis.noarch: W: postin-without-ghost-file-creation /usr/share/java/dom3.jar
+
+xml-commons.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.1-apis.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.1-apis-javadoc.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.1-apis-manual.noarch: W: no-packager-tag
+
+xml-commons-which10.noarch: W: no-packager-tag
+
+xml-commons-which10-javadoc.noarch: W: no-packager-tag
+
+xml-commons-resolver10.noarch: W: no-packager-tag
+
+xml-commons-resolver10-javadoc.noarch: W: no-packager-tag
+
+xml-commons-resolver11.noarch: W: no-packager-tag
+
+xml-commons-resolver11-javadoc.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.2-apis.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.2-apis-javadoc.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.2-apis-manual.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.3-apis.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.3-apis-javadoc.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.3-apis-manual.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.4-apis.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.4-apis-javadoc.noarch: W: no-packager-tag
+
+xml-commons-jaxp-1.4-apis-manual.noarch: W: no-packager-tag
+
+xml-commons-which11.noarch: W: no-packager-tag
+
+xml-commons-which11-javadoc.noarch: W: no-packager-tag
+
+xml-commons-which12.noarch: W: no-packager-tag
+
+xml-commons-which12-javadoc.noarch: W: no-packager-tag
+
+xml-commons-resolver12.noarch: W: no-packager-tag
+
+xml-commons-resolver12-javadoc.noarch: W: no-packager-tag
+
+xml-commons-which10.noarch: W: no-manual-page-for-binary xml-which
+
+xml-commons-which10.noarch: W: no-manual-page-for-binary xml-which10
+
+xml-commons-resolver10.noarch: W: no-manual-page-for-binary xml-xread
+
+xml-commons-resolver10.noarch: W: no-manual-page-for-binary xml-xparse
+
+xml-commons-resolver10.noarch: W: no-manual-page-for-binary xml-resolver
+
+xml-commons-resolver11.noarch: W: no-manual-page-for-binary xml-xread
+
+xml-commons-resolver11.noarch: W: no-manual-page-for-binary xml-xparse
+
+xml-commons-resolver11.noarch: W: no-manual-page-for-binary xml-resolver
+
+xml-commons-which11.noarch: W: no-manual-page-for-binary xml-which
+
+xml-commons-which11.noarch: W: no-manual-page-for-binary xml-which11
+
+xml-commons-which12.noarch: W: no-manual-page-for-binary xml-which12
+
+xml-commons-which12.noarch: W: no-manual-page-for-binary xml-which
+
+xml-commons-resolver12.noarch: W: no-manual-page-for-binary xml-xparse
+
+xml-commons-resolver12.noarch: W: no-manual-page-for-binary xml-xread
+
+xml-commons-resolver12.noarch: W: no-manual-page-for-binary xml-resolver
+
+xml-commons-which10.noarch: W: no-documentation
+
+xml-commons-which11.noarch: W: no-documentation
+
+xml-commons-which12.noarch: W: no-documentation
+
+xml-commons-jaxp-1.1-apis.noarch: W: jar-not-indexed /usr/share/java/xml-commons-jaxp-1.1-apis-1.4.01.jar
+
+xml-commons-which10.noarch: W: jar-not-indexed /usr/share/java/xml-commons-which10-1.4.01.jar
+
+xml-commons-resolver10.noarch: W: jar-not-indexed /usr/share/java/xml-commons-resolver10-1.4.01.jar
+
+xml-commons-jaxp-1.2-apis.noarch: W: jar-not-indexed /usr/share/java/xml-commons-jaxp-1.2-apis-1.4.01.jar
+
+xml-commons-jaxp-1.3-apis.noarch: W: jar-not-indexed /usr/share/java/xml-commons-jaxp-1.3-apis-1.4.01.jar
+
+xml-commons-jaxp-1.3-apis.noarch: W: jar-not-indexed /usr/share/java/xml-commons-jaxp-1.3-apis-ext-1.4.01.jar
+
+xml-commons-jaxp-1.4-apis.noarch: W: jar-not-indexed /usr/share/java/xml-commons-jaxp-1.4-apis-ext-1.4.01.jar
+
+xml-commons-jaxp-1.4-apis.noarch: W: jar-not-indexed /usr/share/java/xml-commons-jaxp-1.4-apis-1.4.01.jar
+
+xml-commons-which11.noarch: W: jar-not-indexed /usr/share/java/xml-commons-which11-1.4.01.jar
+
+xml-commons-which12.noarch: W: jar-not-indexed /usr/share/java/xml-commons-which12-1.4.01.jar
+
+xml-commons.noarch: W: incoherent-version-in-changelog 0:1.3.04-3.0.7mdv2011.0 0:1.4.01-1
+
+xml-commons-jaxp-1.4-apis.noarch: W: ghost-files-without-postin
+
+xml-commons-jaxp-1.4-apis-javadoc.noarch: W: ghost-files-without-postin
+
+xml-commons-which11-javadoc.noarch: W: ghost-files-without-postin
+
+xml-commons-which12-javadoc.noarch: W: ghost-files-without-postin
+
+xml-commons-resolver12-javadoc.noarch: W: ghost-files-without-postin
+
+xml-commons-jaxp-1.1-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.1-apis-1.4.01/LICENSE.dom-documentation.txt
+
+xml-commons-jaxp-1.1-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.1-apis-1.4.01/LICENSE.dom-software.txt
+
+xml-commons-jaxp-1.2-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.2-apis-1.4.01/LICENSE.dom-software.txt
+
+xml-commons-jaxp-1.2-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.2-apis-1.4.01/LICENSE.dom-documentation.txt
+
+xml-commons-jaxp-1.3-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.3-apis-1.4.01/LICENSE.dom-documentation.txt
+
+xml-commons-jaxp-1.3-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.3-apis-1.4.01/LICENSE.dom-software.txt
+
+xml-commons-jaxp-1.4-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.4-apis-1.4.01/LICENSE.dom-documentation.txt
+
+xml-commons-jaxp-1.4-apis.noarch: W: file-not-utf8 /usr/share/xml-commons-jaxp-1.4-apis-1.4.01/LICENSE.dom-software.txt
+
+xml-commons-jaxp-1.1-apis-javadoc.noarch: W: dangling-symlink /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.2-apis-javadoc.noarch: W: dangling-symlink /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.3-apis-javadoc.noarch: W: dangling-symlink /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.4-apis-javadoc.noarch: W: dangling-symlink /usr/share/javadoc/xml-commons-apis /etc/alternatives/xml-commons-apis-javadoc
+
+xml-commons-jaxp-1.4-apis.noarch: W: dangling-relative-symlink /usr/share/java/dom3.jar xml-commons-jaxp-1.3-apis.jar
+
+xml-commons-resolver12-javadoc.noarch: W: dangling-relative-symlink /usr/share/javadoc/xml-commons-resolver12 xml-commons-resolver-12-1.4.01
+
+xml-commons-jaxp-1.1-apis.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-jaxp-1.1-apis-javadoc.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-which10-javadoc.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-resolver10-javadoc.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-resolver11-javadoc.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-jaxp-1.2-apis.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-jaxp-1.2-apis-javadoc.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-jaxp-1.3-apis.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-jaxp-1.3-apis-javadoc.noarch: W: dangerous-command-in-%postun rm
+
+xml-commons-jaxp-1.1-apis.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-jaxp-1.1-apis-javadoc.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-which10-javadoc.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-resolver10-javadoc.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-resolver11-javadoc.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-jaxp-1.2-apis.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-jaxp-1.2-apis-javadoc.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-jaxp-1.3-apis.noarch: W: dangerous-command-in-%post rm
+
+xml-commons-jaxp-1.3-apis-javadoc.noarch: W: dangerous-command-in-%post rm
+
+25 packages and 0 specfiles checked; 0 errors, 112 warnings.
+Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.20160
++ umask 022
++ cd /home/bero/abf/xml-commons/BUILD
++ cd xml-commons-1.4.01
++ /bin/rm -rf /home/bero/abf/xml-commons/BUILDROOT/xml-commons-1.4.01-1-mdv2013.0.noarch-buildroot

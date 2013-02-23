@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.2//EN" "document-v12.dtd">
+<document> 
+  <header> 
+    <title>Which</title> 
+    <authors>
+      <person name="Shane Curcuru" email="curcuru@apache.org"/> 
+    </authors> 
+  </header> 
+  <body> 
+    <section id="overview">
+      <title>Overview</title>
+      <p>
+        Which is a simple environment checking utility that focuses on reporting the versions of 
+        various XML interfaces and some common Apache projects.
+      </p>
+      <p>Currently, most of the documentation about Which is in it's Javadoc, which you can 
+      build via <code>build docs</code>.</p>
+      <fixme author="curcuru">Still need to write overview and user guide docs, as well 
+      as guidelines for creating WhichProject implementations and best practices about 
+      how to use Which for customer support or automated tools.
+      </fixme>
+    </section>
+
+  </body>
+</document>

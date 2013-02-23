@@ -1,12 +1,11 @@
 %define  _duplicate_files_terminate_build 0
 
-%define section free
 %define resolverdir %{_sysconfdir}/java/resolver
 %define gcj_support 0
 
 Name:           xml-commons
 Version:        1.4.01
-Release:        2
+Release:        3
 Summary:        Common code for XML projects
 Epoch:          0
 License:        Apache License
@@ -85,7 +84,7 @@ Provides:       xslt = 1.0
 Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -117,7 +116,7 @@ Provides:       xml-commons-which = 0:%{version}
 Obsoletes:      xml-commons-which < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
 Requires:       java >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires:       ant >= 0:1.6
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
@@ -140,7 +139,7 @@ Provides:       xml-commons-resolver = 0:%{version}
 Obsoletes:      xml-commons-resolver < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
 Requires:       java >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -161,7 +160,7 @@ Provides:       xml-commons-resolver = 0:%{version}
 Obsoletes:      xml-commons-resolver < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
 Requires:       java >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post):  update-alternatives
 
@@ -185,7 +184,7 @@ Provides:       xslt = 1.0
 Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -220,7 +219,7 @@ Provides:       xslt = 1.0
 Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -256,7 +255,7 @@ Provides:       xslt = 1.0
 Provides:       xml-commons-apis = %{epoch}:%{version}
 Obsoletes:      xml-commons-apis <= 0:1.3.02-2jpp
 Requires:       jpackage-utils >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -290,7 +289,7 @@ Obsoletes:      xml-commons-which < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
 Requires:       java >= 0:1.6
 Requires:       ant >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -312,7 +311,7 @@ Obsoletes:      xml-commons-which < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
 Requires:       java >= 0:1.6
 Requires:       ant >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires(preun): update-alternatives
 Requires(post): update-alternatives
 
@@ -332,7 +331,7 @@ Summary:        XmlResolver 1.2 from %{name}
 Provides:       xml-commons-resolver = 0:%{version}
 Obsoletes:      xml-commons-resolver < 0:1.3.03
 Requires:       jpackage-utils >= 0:1.6
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %EVRD
 Requires:       java >= 0:1.6
 Requires(preun): update-alternatives
 Requires(post): update-alternatives

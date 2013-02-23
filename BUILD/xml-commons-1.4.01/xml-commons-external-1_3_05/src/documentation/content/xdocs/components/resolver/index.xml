@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document PUBLIC "-//APACHE//DTD Documentation V1.2//EN" "document-v12.dtd">
+<document> 
+  <header> 
+    <title>Resolver overview</title> 
+  </header> 
+  <body> 
+    <section id="overview">
+      <title>Overview</title>
+      <ul>
+        <li>
+          <link href="resolver-article.html">XML Entity and URI Resolvers</link>
+          - article which thoroughly explains the need and use.
+        </li>
+        <li>
+          <link href="resolver-release-notes.html">Release Notes</link>
+          - lists the changes since the 1.0 release.
+        </li>
+        <li>
+          <link href="../apidocs/resolver/index.html">API docs</link>
+          - the complete Javadocs explain the code.
+        </li>
+        <li>
+          <link href="tips.html">Tips</link>
+          - various things to help you get started, such as configuration
+          files and default catalogs.
+        </li>
+      </ul>
+    </section>
+
+  </body>
+</document>
