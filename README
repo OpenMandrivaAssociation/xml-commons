@@ -1,0 +1,7 @@
+This package is obsolete. Its components are now split into smaller packages
+that make more sense:
+
+xml-commons-apis
+xml-commons-apis13
+xml-commons-apis12
+xml-commons-resolver

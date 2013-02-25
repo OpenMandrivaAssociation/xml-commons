@@ -1,7 +1,0 @@
-<!ELEMENT test (foo|bar)+>
-
-<!ENTITY % mod PUBLIC "-//Apache//ENTITIES Resolver Test Module V1.0//EN"
-                      "http://example.com/does-not-exist">
-
-%mod;
-
